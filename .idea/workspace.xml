@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="36e3cabf-a4c7-4422-8c6c-d3b9aa815eda" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExportToHTMLSettings">
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../swe_loan_calculator-master\exportToHTML" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1p94AfkojNUXEmWOrSVvVxzbdJY" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../swe_loan_calculator-master" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\hkorj\OneDrive\Desktop\swe_loan_calculator-master\swe_loan_calculator-master\android\app" />
+      <recent name="C:\Users\hkorj\OneDrive\Desktop\swe_loan_calculator-master\swe_loan_calculator-master\android\app\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\waich\Desktop\20-3 code\swe_loan_calculator-master\swe_loan_calculator-master\assets" />
+      <recent name="C:\Users\waich\Desktop\20-3 code\swe_loan_calculator-master\swe_loan_calculator-master\assets\images" />
+      <recent name="C:\Users\waich\Desktop\20-3 code\swe_loan_calculator-master\swe_loan_calculator-master\lib" />
+      <recent name="C:\Users\waich\Desktop\20-3 code\swe_loan_calculator-master\swe_loan_calculator-master\lib\page" />
+      <recent name="C:\Users\hkorj\OneDrive\Desktop\swe_loan_calculator-master\swe_loan_calculator-master\lib\page" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Flutter.main.dart">
+    <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/swe_loan_calculator-master/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main_fullListings.dart" type="FlutterRunConfigurationType" factoryName="Flutter" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/swe_loan_calculator-master/lib/page/main_fullListings.dart" />
+      <method v="2" />
+    </configuration>
+    <configuration name="mapview.dart" type="FlutterRunConfigurationType" factoryName="Flutter" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/swe_loan_calculator-master/lib/mapview.dart" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test1.dart" type="FlutterRunConfigurationType" factoryName="Flutter" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/swe_loan_calculator-master/lib/page/test1.dart" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Flutter.main.dart" />
+        <item itemvalue="Flutter.main_fullListings.dart" />
+        <item itemvalue="Flutter.test1.dart" />
+        <item itemvalue="Flutter.mapview.dart" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="36e3cabf-a4c7-4422-8c6c-d3b9aa815eda" name="Default Changelist" comment="" />
+      <created>1614581829313</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1614581829313</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="607" y="195" key="#Plugins" timestamp="1615352075003">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="607" y="195" key="#Plugins/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1615352075003" />
+    <state x="217" y="0" key="#Project_Structure" timestamp="1616216170429">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="217" y="0" key="#Project_Structure/0.0.1280.680@0.0.1280.680" timestamp="1616216170429" />
+    <state x="4352" y="147" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1616308080261">
+      <screen x="3840" y="0" width="1920" height="1040" />
+    </state>
+    <state x="371" y="88" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1616229222729" />
+    <state x="4352" y="147" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824/3840.0.1920.1040@3840.0.1920.1040" timestamp="1616308080261" />
+    <state x="380" y="24" key="#com.intellij.unscramble.UnscrambleDialog" timestamp="1616216120581">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="380" y="24" key="#com.intellij.unscramble.UnscrambleDialog/0.0.1280.680@0.0.1280.680" timestamp="1616216120581" />
+    <state x="92" y="92" width="1736" height="856" key="AVDManager" timestamp="1616397034077">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="77" y="44" width="1158" height="560" key="AVDManager/0.0.1280.680@0.0.1280.680" timestamp="1616235509092" />
+    <state x="3956" y="67" width="1737" height="857" key="AVDManager/0.0.1536.824/3840.0.1920.1040@3840.0.1920.1040" timestamp="1616307390331" />
+    <state x="92" y="92" width="1736" height="856" key="AVDManager/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1616397034077" />
+    <state x="92" y="92" width="776" height="856" key="DiffContextDialog" timestamp="1615975629275">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="776" height="856" key="DiffContextDialog/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1615975629275" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1616397073249">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="493" y="32" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1616224558208" />
+    <state x="4580" y="49" key="FileChooserDialogImpl/0.0.1536.824/3840.0.1920.1040@3840.0.1920.1040" timestamp="1616321413969" />
+    <state x="4826" y="49" key="FileChooserDialogImpl/0.0.1536.824/3840.0.2560.1040@3840.0.2560.1040" timestamp="1616252421325" />
+    <state x="740" y="275" key="FileChooserDialogImpl/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1616397073249" />
+    <state width="919" height="283" key="GridCell.Tab.0.bottom" timestamp="1616397137057">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1236" height="128" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1616234992642" />
+    <state width="1049" height="306" key="GridCell.Tab.0.bottom/0.0.1536.824/3840.0.1920.1040@3840.0.1920.1040" timestamp="1616321427405" />
+    <state width="1170" height="276" key="GridCell.Tab.0.bottom/0.0.1536.824/3840.0.2560.1040@3840.0.2560.1040" timestamp="1616252248134" />
+    <state width="919" height="283" key="GridCell.Tab.0.bottom/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1616397137057" />
+    <state width="919" height="283" key="GridCell.Tab.0.center" timestamp="1616397137057">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1236" height="128" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1616234992642" />
+    <state width="1049" height="306" key="GridCell.Tab.0.center/0.0.1536.824/3840.0.1920.1040@3840.0.1920.1040" timestamp="1616321427405" />
+    <state width="1170" height="276" key="GridCell.Tab.0.center/0.0.1536.824/3840.0.2560.1040@3840.0.2560.1040" timestamp="1616252248134" />
+    <state width="919" height="283" key="GridCell.Tab.0.center/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1616397137057" />
+    <state width="919" height="283" key="GridCell.Tab.0.left" timestamp="1616397137057">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1236" height="128" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1616234992641" />
+    <state width="1049" height="306" key="GridCell.Tab.0.left/0.0.1536.824/3840.0.1920.1040@3840.0.1920.1040" timestamp="1616321427405" />
+    <state width="1170" height="276" key="GridCell.Tab.0.left/0.0.1536.824/3840.0.2560.1040@3840.0.2560.1040" timestamp="1616252248134" />
+    <state width="919" height="283" key="GridCell.Tab.0.left/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1616397137057" />
+    <state width="919" height="283" key="GridCell.Tab.0.right" timestamp="1616397137057">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1236" height="128" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1616234992642" />
+    <state width="1049" height="306" key="GridCell.Tab.0.right/0.0.1536.824/3840.0.1920.1040@3840.0.1920.1040" timestamp="1616321427405" />
+    <state width="1170" height="276" key="GridCell.Tab.0.right/0.0.1536.824/3840.0.2560.1040@3840.0.2560.1040" timestamp="1616252248134" />
+    <state width="919" height="283" key="GridCell.Tab.0.right/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1616397137057" />
+    <state x="-44" y="131" key="SettingsEditor" timestamp="1616397716143">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="284" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1616224215457" />
+    <state x="4455" y="165" key="SettingsEditor/0.0.1536.824/3840.0.2560.1040@3840.0.2560.1040" timestamp="1616250593779" />
+    <state x="461" y="165" key="SettingsEditor/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1616397437058" />
+    <state x="-44" y="131" key="SettingsEditor/1920.0.1600.860/0.0.1920.1040@1920.0.1600.860" timestamp="1616397716143" />
+    <state x="17" y="6" width="1124" height="823" key="dock-window-1" timestamp="1616309088403">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="418" y="7" width="1124" height="823" key="dock-window-1/0.0.1536.824/3840.0.1920.1040@0.0.1536.824" timestamp="1616303774299" />
+    <state x="17" y="6" width="1124" height="823" key="dock-window-1/0.0.1536.824/3840.0.1920.1040@3840.0.1920.1040" timestamp="1616309088403" />
+    <state x="5269" y="165" width="1124" height="823" key="dock-window-1/0.0.1536.824/3840.0.2560.1040@3840.0.2560.1040" timestamp="1616265963653" />
+    <state x="5457" y="58" width="959" height="693" key="dock-window-2" timestamp="1616263937186">
+      <screen x="3840" y="0" width="2560" height="1040" />
+    </state>
+    <state x="5457" y="58" width="959" height="693" key="dock-window-2/0.0.1536.824/3840.0.2560.1040@3840.0.2560.1040" timestamp="1616263937186" />
+    <state x="4911" y="0" width="849" height="1047" key="dock-window-3" timestamp="1616305570613">
+      <screen x="3840" y="0" width="1920" height="1040" />
+    </state>
+    <state x="4911" y="0" width="849" height="1047" key="dock-window-3/0.0.1536.824/3840.0.1920.1040@3840.0.1920.1040" timestamp="1616305570613" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1615382373518">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1615382373518" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1615995034657">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1615995034657" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/swe_loan_calculator-master/lib/main.dart</url>
+          <line>39</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/../version2_MAPVIEW/version2_MAPVIEW/lib/main_fullListings.dart</url>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/swe_loan_calculator-master/lib/page/listviewpage.dart</url>
+          <line>59</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/swe_loan_calculator-master/lib/page/listviewpage.dart</url>
+          <line>144</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/swe_loan_calculator-master/lib/page/listviewpage.dart</url>
+          <line>177</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/swe_loan_calculator-master/lib/page/listviewpage.dart</url>
+          <line>180</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/swe_loan_calculator-master/lib/page/listviewpage.dart</url>
+          <line>41</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/swe_loan_calculator-master/lib/page/listviewpage.dart</url>
+          <line>42</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/swe_loan_calculator-master/lib/page/BookmarkView.dart</url>
+          <line>69</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
