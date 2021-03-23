@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:swe_loan_calculator/src/shoppingmalls.dart' as ShoppingMalls;
 import 'package:swe_loan_calculator/src/HDBListings.dart' as HDBListings;
 
 

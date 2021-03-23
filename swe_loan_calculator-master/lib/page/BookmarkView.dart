@@ -1,10 +1,7 @@
 import 'package:swe_loan_calculator/src/HDBListings.dart' as locations;
 import 'package:flutter/material.dart';
-import 'package:swe_loan_calculator/page/user_page.dart';
 import 'package:swe_loan_calculator/model/Bookmark.dart';
-import 'package:swe_loan_calculator/page/DataBase.dart';
-import 'package:firebase_database/firebase_database.dart';
-import 'package:swe_loan_calculator/model/Bookmark.dart';
+
 
 class BookMarkPage extends StatefulWidget{
 
