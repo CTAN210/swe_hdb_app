@@ -1,20 +1,15 @@
 import 'dart:math';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:screenshot/screenshot.dart';
+import 'package:share/share.dart';
 import 'package:swe_loan_calculator/provider/google_sign_in.dart';
 import 'package:pie_chart/pie_chart.dart';
-import 'package:http/http.dart' as https;
-import 'dart:convert';
-import 'package:swe_loan_calculator/src/HDBListings.dart' as locations;
-import 'main_fullListings.dart' as full_details;
 import 'package:swe_loan_calculator/page/listviewpage.dart' as listviewpage;
 import 'main_map.dart' as map_view;
-import 'package:swe_loan_calculator/src/shoppingmalls.dart' as ShoppingMalls;
 import 'package:provider/provider.dart';
-import 'package:swe_loan_calculator/page/user_network_page.dart';
-import 'package:firebase_database/firebase_database.dart';
+
 
 
 class MyHomePage extends StatelessWidget {
@@ -40,18 +35,7 @@ class MyHomePage extends StatelessWidget {
                         child: Text('Logout')
                     ),
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => UserNetworkPage(),
-                        ),
-                      );
-                    },
-                    child: Text("network",
-                        style: TextStyle(fontWeight: FontWeight.w900, fontSize: 30)),
-                  ),
+
                   GestureDetector(
                     onTap: () {
                       Navigator.push(
@@ -79,7 +63,7 @@ class MyHomePage extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => HelpPage(),
+                            builder: (context) => HelpPageView(),
                           ),
                         );
                       }),
@@ -110,28 +94,7 @@ class MyHomePage extends StatelessWidget {
         ));
   }
 }
-class HelpPage extends StatelessWidget{
-  HelpPage({Key key, this.title}) : super(key: key);
-  final String title;
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text("Help"),
-        ),
-        body: Center(
-            child: Container(
-                padding: EdgeInsets.all(10),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    HelpPageView(),
-                  ],
-                ))));
-  }
-}
 class HelpPageView extends StatefulWidget {
   @override
   HelpPageState createState() => HelpPageState();
@@ -140,59 +103,66 @@ class HelpPageState extends State<HelpPageView>{
 
 
   Widget build(BuildContext context){
-    return Column(
-      children: <Widget>[
-        Image.asset('assets/images/HDB Image.png'),
-        SizedBox(height: 10,),
-        Container(
-          alignment: Alignment.topLeft,
-          margin: const EdgeInsets.only(left: 15.0),
-          child: Text("About the application:",
-            style: TextStyle(fontWeight: FontWeight.w900, fontSize: 20),
-            textAlign: TextAlign.left,
-          ),
+    return Scaffold(
+        appBar: AppBar(
+          title: Text("Help"),
         ),
+        body: Center(
+            child: Container(
+                padding: EdgeInsets.all(10),
+                child: Column(
+                  children: <Widget>[
+                    Image.asset('assets/images/HDB Image.png'),
+                    SizedBox(height: 10,),
+                    Container(
+                      alignment: Alignment.topLeft,
+                      margin: const EdgeInsets.only(left: 15.0),
+                      child: Text("About the application:",
+                        style: TextStyle(fontWeight: FontWeight.w900, fontSize: 20),
+                        textAlign: TextAlign.left,
+                      ),
+                    ),
 
-        Container(
-          alignment: Alignment.topLeft,
-          margin: const EdgeInsets.all(15.0),
-          padding: const EdgeInsets.all(10.0),
-          height: 120.0,
-          decoration: BoxDecoration(
-            color: CupertinoColors.lightBackgroundGray,
-            border: null,
-          ),
-          child: Text("HDB App is a dual purpose mobile application which enables users to firstly, source for potential HDB listings based on your preferred filter criteria and secondly, calculate potential total and monthly loan / interest payments.",
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 15,
-              letterSpacing: 0,
-            ),
-          ),
-        ),
-        Container(
-          alignment: Alignment.topLeft,
-          margin: const EdgeInsets.only(left: 15.0),
-          child: Text("Frequently Asked Questions:",
-            style: TextStyle(fontWeight: FontWeight.w900, fontSize: 20),
-            textAlign: TextAlign.left,
-          ),
-        ),
-        Container(
-          alignment: Alignment.topLeft,
-          margin: const EdgeInsets.all(15.0),
-          padding: const EdgeInsets.all(10.0),
-          height: 270.0,
-          decoration: BoxDecoration(
-            color: CupertinoColors.lightBackgroundGray,
-            border: null,
-          ),
-          child:Column(
-            children:<Widget>[
-              Expanded(
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.vertical,
-                  child: Text(""" 
+                    Container(
+                      alignment: Alignment.topLeft,
+                      margin: const EdgeInsets.all(15.0),
+                      padding: const EdgeInsets.all(10.0),
+                      height: 120.0,
+                      decoration: BoxDecoration(
+                        color: CupertinoColors.lightBackgroundGray,
+                        border: null,
+                      ),
+                      child: Text("HDB App is a dual purpose mobile application which enables users to firstly, source for potential HDB listings based on your preferred filter criteria and secondly, calculate potential total and monthly loan / interest payments.",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 15,
+                          letterSpacing: 0,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      alignment: Alignment.topLeft,
+                      margin: const EdgeInsets.only(left: 15.0),
+                      child: Text("Frequently Asked Questions:",
+                        style: TextStyle(fontWeight: FontWeight.w900, fontSize: 20),
+                        textAlign: TextAlign.left,
+                      ),
+                    ),
+                    Container(
+                      alignment: Alignment.topLeft,
+                      margin: const EdgeInsets.all(15.0),
+                      padding: const EdgeInsets.all(10.0),
+                      height: 270.0,
+                      decoration: BoxDecoration(
+                        color: CupertinoColors.lightBackgroundGray,
+                        border: null,
+                      ),
+                      child:Column(
+                        children:<Widget>[
+                          Expanded(
+                            child: SingleChildScrollView(
+                              scrollDirection: Axis.vertical,
+                              child: Text(""" 
 1. Question: How is the total and monthly loan payment breakdown derived?
 
 Answer: It is derived based on the HDB Loan Interest Rates. 
@@ -213,51 +183,84 @@ Answer: You can bookmark the listing through the listing view, map view or the i
 
 Answer: Yes of course! You can share the listing on Whatsapp, Messenger and Telegram through the share button located at the top right hand corner of the Property View!
               """,
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 15,
-                      letterSpacing: 0,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        )],
-    );
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 15,
+                                  letterSpacing: 0,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    )],
+                ))));
   }
 }
 
 
 
+class LoanCalPage extends StatefulWidget {
 
-class LoanCalPage extends StatelessWidget {
   LoanCalPage({Key key, this.title}) : super(key: key);
   final String title;
 
   @override
+  _LoanCalPageState createState() => _LoanCalPageState();
+}
+
+class _LoanCalPageState extends State<LoanCalPage> {
+  ScreenshotController screenshotController = ScreenshotController();
+
   Widget build(BuildContext context) {
     return GestureDetector(
-        onTap: () {
-          FocusScopeNode currentFocus = FocusScope.of(context);
-          if (!currentFocus.hasPrimaryFocus) {
-            currentFocus.unfocus();
-          }
-        },
-        child: Scaffold(
-            appBar: AppBar(
-              title: Text("Loan Calculator"),
+      onTap: () {
+        FocusScopeNode currentFocus = FocusScope.of(context);
+        if (!currentFocus.hasPrimaryFocus) {
+          currentFocus.unfocus();
+        }
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text("Loan Calculator"),
+
+          actions: <Widget>[
+            IconButton(
+              icon: const Icon(Icons.home),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => MyHomePage()));
+              },
             ),
-            body: Center(
-                child: Container(
-                    padding: EdgeInsets.all(10),
+
+            IconButton(
+              icon: const Icon(Icons.ios_share),
+              onPressed: () {
+                _takeScreenshotandShare();
+              },),
+          ],
+        ),
+        body: Center(
+            child: Container(
+                padding: EdgeInsets.all(10),
+
+                child: Screenshot(
+                    controller: screenshotController,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        _Slider(),
-                      ],
-                    )))));
+                        _Slider(),],
+                    ))
+            )),
+      ),
+    );
+  }
+  void _takeScreenshotandShare() async {
+    final imageFile = await screenshotController.capture();
+    Share.shareFiles([imageFile.path], text: "Shared from HDP App");
   }
 }
 
@@ -485,10 +488,6 @@ class _SliderState extends State<_Slider> {
   }
 }
 
-
-
-
-
 class LoanVisualPage extends StatelessWidget{
   final  double intValue;
   final int loanTenureValue;
@@ -499,6 +498,7 @@ class LoanVisualPage extends StatelessWidget{
   LoanVisualPage({Key key, this.title, this.loanTenureValue,
     this.principalValue, this.loanValue, this.intValue}) : super(key: key);
   final String title;
+  final ScreenshotController screenshotController = ScreenshotController();
 
 
   @override
@@ -512,21 +512,46 @@ class LoanVisualPage extends StatelessWidget{
         },
         child: Scaffold(
             appBar: AppBar(
-              title: Text("Loan Visualisation Page"),
+              title: Text("Loan Visualisation Page"),actions: <Widget>[
+              IconButton(
+                icon: const Icon(Icons.home),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => MyHomePage()));
+                },
+              ),
+
+              IconButton(
+                icon: const Icon(Icons.ios_share),
+                onPressed: () {
+                  _takeScreenshotandShare();
+                },),],
             ),
-            body: Center(
-                child: Container(
-                    padding: EdgeInsets.all(10),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        _MonthlyVisualisation(),
-                        SizedBox(height: 20,),//intValue:intValue,
-                        _TotalVisualisation(),
-                      ],
-                    ))
-            )));
+            body: Screenshot(
+                controller: screenshotController,
+                child: Center(
+                    child: Container(
+                        padding: EdgeInsets.all(10),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            _MonthlyVisualisation(),
+                            SizedBox(height: 20,),//intValue:intValue,
+                            _TotalVisualisation(),
+                          ],
+                        )
+                    )
+                )
+            )
+        )
+    );
+  }
+  void _takeScreenshotandShare() async {
+    final imageFile = await screenshotController.capture();
+    Share.shareFiles([imageFile.path], text: "Shared from HDP App");
   }
 }
 
