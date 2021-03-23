@@ -202,8 +202,8 @@ Answer: Yes of course! You can share the listing on Whatsapp, Messenger and Tele
 
 class LoanCalPage extends StatefulWidget {
 
-  LoanCalPage({Key key, this.title}) : super(key: key);
-  final String title;
+  LoanCalPage({Key key, this.presetPrincipal}) : super(key: key);
+  final double presetPrincipal;
 
   @override
   _LoanCalPageState createState() => _LoanCalPageState();
@@ -252,7 +252,7 @@ class _LoanCalPageState extends State<LoanCalPage> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        _Slider(),],
+                        _Slider(presetPrincipal: widget.presetPrincipal,),],
                     ))
             )),
       ),
@@ -265,21 +265,39 @@ class _LoanCalPageState extends State<LoanCalPage> {
 }
 
 class _Slider extends StatefulWidget {
+  _Slider({Key key, this.presetPrincipal}) : super(key: key);
+   double presetPrincipal;
   @override
-  _SliderState createState() => _SliderState();
+  _SliderState createState() => _SliderState(presetPrincipal: presetPrincipal);
 }
 
 class _SliderState extends State<_Slider> {
+  _SliderState({this.presetPrincipal});
+  double presetPrincipal;
   static double _intValue = 0.0;
   static int _loanTenureValue = 1;
   static int _loanValue = 10;
-  static String _principalValue = "500000";
+
+  static String _principalValue;
   var myController = TextEditingController();
 
+  String obtainPrincipal(double presetPrincipal) {
+    if(presetPrincipal!=null) {
+      return presetPrincipal.toString();
+    } else {
+      return '500000';
+    }
+  }
+
   Widget build(BuildContext context) {
+    if(presetPrincipal!=null) {
+      myController.text =  obtainPrincipal(presetPrincipal);
+    }
+    _principalValue = myController.text;
     return Column(
       children: <Widget>[
         Container(
+
             decoration: BoxDecoration(border: Border.all()),
             padding: EdgeInsets.all(15),
             child: Column(
@@ -294,7 +312,7 @@ class _SliderState extends State<_Slider> {
                     child: TextField(
                       keyboardType: TextInputType.number,
                       controller: myController,
-                      decoration: new InputDecoration(
+                      decoration: InputDecoration(
                         focusedBorder: OutlineInputBorder(
                           borderSide:
                           BorderSide(color: Colors.blue, width: 2.0),
@@ -449,7 +467,7 @@ class _SliderState extends State<_Slider> {
                     setState(
                           () {
                         //enter change page here
-                        _principalValue = myController.text;
+
                         Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -472,7 +490,7 @@ class _SliderState extends State<_Slider> {
   static double checkNull(String principalValue){
     try{return(double.parse(_principalValue));}
     catch(e){
-      return 500000;}
+      return 600000;}
   }
   static double getIntValue(){
     return _intValue;
@@ -556,9 +574,11 @@ class LoanVisualPage extends StatelessWidget{
 }
 
 class LoanController{
+
   static double calculateTotalLoanAmount(double principalValue, int loanValue){
     return (loanValue/100)*principalValue;
   }
+
   static double calculateDownPayment(double principalValue, int loanValue ){
     return ((100-loanValue)/100)*principalValue;
   }
@@ -568,10 +588,12 @@ class LoanController{
     double totalLoanAmount = calculateTotalLoanAmount(principalValue, loanValue);
     return (totalLoanAmount*(interestRate))/(1-1/pow(1+interestRate,loanTenure))/12;
   }
+
   static double calculateMonthlyInterest(double principalValue, double interestRate, int loanValue){
     double totalLoanAmount = calculateTotalLoanAmount(principalValue, loanValue);
     return (totalLoanAmount*interestRate)/12;
   }
+
   static double calculateMonthlyLoanAmount(double principalValue, double interestRate,
       int loanTenure, int loanValue){
     return calculateMonthlyPayment(principalValue, interestRate, loanTenure,loanValue)-

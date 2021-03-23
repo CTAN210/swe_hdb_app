@@ -10,15 +10,8 @@
   <component name="ChangeListManager">
     <list default="true" id="36e3cabf-a4c7-4422-8c6c-d3b9aa815eda" name="Default Changelist" comment="1. Updated Share and screen shot function.&#10;2. removed network and user page&#10;3. changed help view to stateful widget">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/lib/model/Bookmark.dart" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/lib/model/Bookmark.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/lib/page/BookmarkView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/lib/page/BookmarkView.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/lib/page/DataBase.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/lib/page/main_map.dart" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/lib/page/main_map.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/lib/page/user_network_page.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/lib/page/user_page.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/lib/page/listviewpage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/lib/page/listviewpage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/lib/page/mainpage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/lib/page/mainpage.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +126,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616519084991</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="1. Updated Share and screen shot function.&#10;2. removed network and user page&#10;3. changed help view to stateful widget">
+      <created>1616519592309</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1616519592309</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -225,10 +225,10 @@
     <state x="4455" y="165" key="SettingsEditor/0.0.1536.824/3840.0.2560.1040@3840.0.2560.1040" timestamp="1616250593779" />
     <state x="480" y="50" key="SettingsEditor/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1616397856119" />
     <state x="-44" y="131" key="SettingsEditor/1920.0.1600.860/0.0.1920.1040@1920.0.1600.860" timestamp="1616397716143" />
-    <state x="4391" y="251" key="Vcs.Push.Dialog.v2" timestamp="1616519097384">
+    <state x="4391" y="251" key="Vcs.Push.Dialog.v2" timestamp="1616519620635">
       <screen x="3840" y="0" width="1920" height="1040" />
     </state>
-    <state x="4391" y="251" key="Vcs.Push.Dialog.v2/0.0.1536.824/3840.0.1920.1040@3840.0.1920.1040" timestamp="1616519097384" />
+    <state x="4391" y="251" key="Vcs.Push.Dialog.v2/0.0.1536.824/3840.0.1920.1040@3840.0.1920.1040" timestamp="1616519620635" />
     <state x="17" y="6" width="1124" height="823" key="dock-window-1" timestamp="1616309088403">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -243,9 +243,10 @@
       <screen x="3840" y="0" width="1920" height="1040" />
     </state>
     <state x="4911" y="0" width="849" height="1047" key="dock-window-3/0.0.1536.824/3840.0.1920.1040@3840.0.1920.1040" timestamp="1616305570613" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1615382373518">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="4456" y="240" key="run.anything.popup" timestamp="1616530881205">
+      <screen x="3840" y="0" width="1920" height="1040" />
     </state>
+    <state x="4456" y="240" key="run.anything.popup/0.0.1536.824/3840.0.1920.1040@3840.0.1920.1040" timestamp="1616530881205" />
     <state x="616" y="240" key="run.anything.popup/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1615382373518" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1615995034657">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -266,23 +267,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
           <url>file://$PROJECT_DIR$/swe_loan_calculator-master/lib/page/listviewpage.dart</url>
-          <line>59</line>
+          <line>60</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
           <url>file://$PROJECT_DIR$/swe_loan_calculator-master/lib/page/listviewpage.dart</url>
-          <line>144</line>
+          <line>141</line>
           <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
-          <url>file://$PROJECT_DIR$/swe_loan_calculator-master/lib/page/listviewpage.dart</url>
-          <line>177</line>
-          <option name="timeStamp" value="30" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
-          <url>file://$PROJECT_DIR$/swe_loan_calculator-master/lib/page/listviewpage.dart</url>
-          <line>180</line>
-          <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
           <url>file://$PROJECT_DIR$/swe_loan_calculator-master/lib/page/listviewpage.dart</url>

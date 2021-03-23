@@ -5,7 +5,7 @@ import 'package:swe_loan_calculator/src/HDBListings.dart' as locations;
 import 'package:swe_loan_calculator/page/BookmarkView.dart';
 import 'package:swe_loan_calculator/model/Bookmark.dart';
 import 'package:firebase_database/firebase_database.dart';
-
+import 'package:swe_loan_calculator/page/mainpage.dart';
 
 
 
@@ -41,6 +41,7 @@ class ListViewPageState extends State<ListViewPage> {
 
   final List bookmarkList = [];
   final List checkList = [];
+  final databaseReference = FirebaseDatabase.instance.reference();
 
   Future<List<locations.HDBListing>> filtered_hdb;
 
@@ -67,7 +68,7 @@ class ListViewPageState extends State<ListViewPage> {
       return finalList;
     }
   }
-  final databaseReference = FirebaseDatabase.instance.reference();
+
 
   DatabaseReference saveBookmark(BookMarkInfo bookMarkInfo) {
     databaseReference.child('bookmark/').remove();
@@ -102,10 +103,6 @@ class ListViewPageState extends State<ListViewPage> {
     return bookMarkInfos;
   }
   */
-
-
-
-
 
 
 
@@ -165,28 +162,45 @@ class ListViewPageState extends State<ListViewPage> {
                                 '\n' +
                                 'remaining_lease: ' +
                                 filtered_hdb1[index].remaining_lease),
-                            trailing: IconButton(
-                              icon: Icon(
-                                isBookmarked
-                                    ? Icons.bookmark
-                                    : Icons.bookmark_border,
-                                color: isBookmarked ? Colors.black : null,
-                              ),
-                              onPressed: () {
-                                setState(() {
-                                  if (isBookmarked) {
-                                    //BookMarkItem.bookMarkedList.remove(filtered_hdb1[index]);
-                                    checkList.remove(filtered_hdb1[index].ID);
-                                  } else {
-                                    //BookMarkItem.bookMarkedList.add(filtered_hdb1[index]);
-                                    checkList.add(filtered_hdb1[index].ID);
-                                  }
-                                });
-                                BookMarkItem.bookMarkedList=checkList;
+                            trailing: Wrap(
+                              spacing: -20,
+                              children: <Widget>[
+                                IconButton(
+                                  icon: Icon(
+                                    isBookmarked
+                                        ? Icons.bookmark
+                                        : Icons.bookmark_border,
+                                    color: isBookmarked ? Colors.black : null,
+                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      if (isBookmarked) {
+                                        //BookMarkItem.bookMarkedList.remove(filtered_hdb1[index]);
+                                        checkList.remove(filtered_hdb1[index].ID);
+                                      } else {
+                                        //BookMarkItem.bookMarkedList.add(filtered_hdb1[index]);
+                                        checkList.add(filtered_hdb1[index].ID);
+                                      }
+                                    });
+                                    BookMarkItem.bookMarkedList=checkList;
 
-                                saveBookmark(BookMarkItem);
-                              },
+                                    saveBookmark(BookMarkItem);
+                                  },
+                                ),
+                                IconButton(
+                                  icon: Icon(Icons.calculate_outlined),
+                                  onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => LoanCalPage(presetPrincipal: filtered_hdb1[index].resale_price,),
+                                        ),
+                                      );
+                                    }
+                                ),
+                              ],
                             ),
+
                           ),
                         );
                       });
