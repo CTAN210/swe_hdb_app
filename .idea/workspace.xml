@@ -8,12 +8,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36e3cabf-a4c7-4422-8c6c-d3b9aa815eda" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="36e3cabf-a4c7-4422-8c6c-d3b9aa815eda" name="Default Changelist" comment="Comit Test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/lib/page/test1.dart" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/lib/page/test1.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,6 +104,14 @@
       <option name="presentableId" value="Default" />
       <updated>1614581829313</updated>
     </task>
+    <task id="LOCAL-00001" summary="Comit Test">
+      <created>1616510356859</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1616510356859</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -120,6 +125,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Comit Test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Comit Test" />
   </component>
   <component name="WindowStateProjectService">
     <state x="607" y="195" key="#Plugins" timestamp="1615352075003">
@@ -192,6 +201,10 @@
     <state x="4455" y="165" key="SettingsEditor/0.0.1536.824/3840.0.2560.1040@3840.0.2560.1040" timestamp="1616250593779" />
     <state x="480" y="50" key="SettingsEditor/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1616397856119" />
     <state x="-44" y="131" key="SettingsEditor/1920.0.1600.860/0.0.1920.1040@1920.0.1600.860" timestamp="1616397716143" />
+    <state x="4391" y="251" key="Vcs.Push.Dialog.v2" timestamp="1616510366465">
+      <screen x="3840" y="0" width="1920" height="1040" />
+    </state>
+    <state x="4391" y="251" key="Vcs.Push.Dialog.v2/0.0.1536.824/3840.0.1920.1040@3840.0.1920.1040" timestamp="1616510366465" />
     <state x="17" y="6" width="1124" height="823" key="dock-window-1" timestamp="1616309088403">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
