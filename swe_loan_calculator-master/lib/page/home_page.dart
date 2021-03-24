@@ -6,6 +6,9 @@ import 'package:swe_loan_calculator/widget/sign_up_widget.dart';
 import 'package:swe_loan_calculator/provider/google_sign_in.dart';
 import 'package:provider/provider.dart';
 
+
+
+
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(

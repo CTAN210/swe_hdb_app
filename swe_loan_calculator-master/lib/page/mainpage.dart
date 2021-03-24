@@ -4,11 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:share/share.dart';
+import 'package:swe_loan_calculator/model/Bookmark.dart';
 import 'package:swe_loan_calculator/provider/google_sign_in.dart';
 import 'package:pie_chart/pie_chart.dart';
 import 'package:swe_loan_calculator/page/listviewpage.dart' as listviewpage;
 import 'main_map.dart' as map_view;
 import 'package:provider/provider.dart';
+import 'package:swe_loan_calculator/Bookmark.dart';
+import 'package:firebase_database/firebase_database.dart';
+
 
 
 
@@ -745,10 +749,12 @@ class HDBListModel {
 class FilterPage extends StatelessWidget {
   FilterPage({Key key, this.title}) : super(key: key);
   final String title;
+  var pulledList;
 
 
   @override
   Widget build(BuildContext context) {
+
     return GestureDetector(
         onTap: () {
           FocusScopeNode currentFocus = FocusScope.of(context);
@@ -776,7 +782,8 @@ class FilterPage extends StatelessWidget {
 class _Slider2 extends StatefulWidget {
 
 
-  @override
+
+@override
   _SliderState2 createState() => _SliderState2();
 
 }
@@ -795,6 +802,7 @@ class _SliderState2 extends State<_Slider2> {
   static int _value1 = 1;
 
   static int _value2 = 1;
+  var pulledList;
 
 
   var myController = TextEditingController();
@@ -802,6 +810,20 @@ class _SliderState2 extends State<_Slider2> {
   listviewpage.ListViewPage abc;
 
   Widget build(BuildContext context) {
+    var BookmarkController = BookMarkController();
+    var user = BookmarkController.user;
+    List update(){
+      BookmarkController.databaseReference.child('bookmark/'+user+'/bookMarkList/').once().then(
+              (DataSnapshot data){
+            setState((){
+              pulledList = data.value;
+            });
+          }
+      );
+        return pulledList;
+      }
+
+
     return Column(
       children: <Widget>[
         Container(
@@ -1095,7 +1117,19 @@ class _SliderState2 extends State<_Slider2> {
                         style: TextStyle(fontSize: 16.0),
                       )),
                   onPressed: () async{
-                    //enter change page here
+                    pulledList=update();
+                    var checkList =[];
+                    int j;
+                    try{
+                      j = pulledList.length;
+                    }
+                    catch(e){
+                      j=0;
+                    }
+                    for(var i=0;i< j;i++){
+                      if(!checkList.contains(pulledList[i]))
+                      {checkList.add(pulledList[i]);}
+                    }
                     final result = await Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -1107,10 +1141,16 @@ class _SliderState2 extends State<_Slider2> {
                               value1: _value1,
                               value2: _value2,
                               remainLease: _remainLease,
+                              pulledList: pulledList,
+                              checkList: checkList,
 
                             )
                         )
                     );
+
+
+
+
                   }),
             ]),
 

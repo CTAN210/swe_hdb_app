@@ -5,7 +5,6 @@ import 'package:swe_loan_calculator/model/Bookmark.dart';
 import 'package:swe_loan_calculator/src/HDBListings.dart' as locations;
 import 'package:swe_loan_calculator/page/BookmarkView.dart';
 import 'package:swe_loan_calculator/model/Bookmark.dart';
-import 'package:firebase_database/firebase_database.dart';
 import 'package:swe_loan_calculator/page/mainpage.dart';
 
 
@@ -19,6 +18,8 @@ class ListViewPage extends StatefulWidget {
   final int value2;
   final int remainLease;
   final String user = FirebaseAuth.instance.currentUser.displayName;
+  var pulledList;
+  List<dynamic> checkList;
 
   ListViewPage(
       {Key key,
@@ -30,6 +31,8 @@ class ListViewPage extends StatefulWidget {
       this.value1,
       this.value2,
       this.remainLease,
+      this.pulledList,
+      this.checkList
       })
       : super(key: key);
   final String title;
@@ -41,7 +44,6 @@ class ListViewPage extends StatefulWidget {
 class ListViewPageState extends State<ListViewPage> {
 
   final List bookmarkList = [];
-  final List checkList = [];
   var BookmarkController = BookMarkController();
 
   Future<List<locations.HDBListing>> filtered_hdb;
@@ -101,16 +103,24 @@ class ListViewPageState extends State<ListViewPage> {
   */
 
 
-
-
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context)  {
+    var count =0;
     filtered_hdb = _onMapView();
+    //checkList=widget.pulledList;
+
     var BookMarkItem = BookMarkInfo(bookmarkList, widget.user);
+
+
+    if(widget.pulledList == null ){
+      widget.pulledList=[];
+      count++;
+    }
+
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('HDB Lists (Filtered)'),
+        title: Text('HDB Lists (Filtered)'+widget.checkList.length.toString()),
         actions: <Widget>[
           IconButton(
               icon: const Icon(Icons.list),
@@ -119,26 +129,37 @@ class ListViewPageState extends State<ListViewPage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => BookMarkPage(BookMarkItem,checkList)),
+                        builder: (context) => BookMarkPage(BookMarkItem,widget.checkList)),
                   );
                 });
               })
         ],
       ),
       body: Container(
-          child: FutureBuilder<List<locations.HDBListing>>(
-              future: filtered_hdb,
+          child: FutureBuilder<List>(
+              //future: Future.wait([filtered_hdb,FirebaseDatabase.instance.reference().child('bookmark/'+user).once()]),
+              //builder: (context, AsyncSnapshot<List<dynamic>> snapshot) {
+              future:filtered_hdb,
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
+
                   List<locations.HDBListing> filtered_hdb1 = snapshot.data;
+
+                 // List<locations.HDBListing> filtered_hdb1 = snapshot.data[0];
+                  //List pulledList1 = snapshot.data[1];
+                  //for(var i in pulledList1){
+                   // checkList.add(i);
+                  //}
+
+
                   return ListView.builder(
                       padding: EdgeInsets.all(8),
                       itemCount: snapshot.data.length,
                       itemBuilder: (BuildContext context, int index) {
 
-                        final isBookmarked =
+                        var isBookmarked =
                         //BookMarkItem.bookMarkedList.contains(filtered_hdb1[index]);
-                        checkList.contains(filtered_hdb1[index].ID);
+                        widget.checkList.contains(filtered_hdb1[index].ID);
 
 
 
@@ -148,7 +169,7 @@ class ListViewPageState extends State<ListViewPage> {
                               Navigator.pushNamed(context, '/third',
                                   arguments: filtered_hdb1[index]);
                             },
-                            title: Text("price: " +
+                            title: Text('price: ' +
                                 filtered_hdb1[index].resale_price.toString() +
                                 '\n' +
                                 'address: ' +
@@ -173,15 +194,14 @@ class ListViewPageState extends State<ListViewPage> {
                                     setState(() {
                                       if (isBookmarked) {
                                         //BookMarkItem.bookMarkedList.remove(filtered_hdb1[index]);
-                                        checkList.remove(filtered_hdb1[index].ID);
+                                        widget.checkList.remove(filtered_hdb1[index].ID);
                                       } else {
                                         //BookMarkItem.bookMarkedList.add(filtered_hdb1[index]);
-                                        checkList.add(filtered_hdb1[index].ID);
+                                        widget.checkList.add(filtered_hdb1[index].ID);
                                       }
                                     });
-                                    BookMarkItem.bookMarkedList=checkList;
-
-                                    BookmarkController.saveBookmark(BookMarkItem);
+                                    BookMarkItem.bookMarkedList=widget.checkList;
+                                   BookmarkController.saveBookmark(BookMarkItem);
                                   },
                                 ),
                                 IconButton(
@@ -204,7 +224,8 @@ class ListViewPageState extends State<ListViewPage> {
                 } else {
                   return Center(child: CircularProgressIndicator());
                 }
-              })),
+              })
+    ),
       bottomNavigationBar: BottomAppBar(
         shape: const CircularNotchedRectangle(),
         child: Container(

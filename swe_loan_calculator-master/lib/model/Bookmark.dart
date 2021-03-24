@@ -25,20 +25,35 @@ class BookMarkInfo {
 class BookMarkController{
   final databaseReference = FirebaseDatabase.instance.reference();
   final user = FirebaseAuth.instance.currentUser.uid;
+  final id = FirebaseAuth.instance.currentUser.metadata;
 
-  DatabaseReference saveBookmark(BookMarkInfo bookMarkInfo) {
+  void saveBookmark(BookMarkInfo bookMarkInfo) {
     databaseReference.child('bookmark/'+user).remove();
-    var id = databaseReference.child('bookmark/'+user).push();
-    id.set(bookMarkInfo.toJson());
-    return id;
-  }
-  List updateBookmarkList(){
+    var id = databaseReference.child('bookmark/'+user).set(bookMarkInfo.toJson());
+
 
   }
+ /*  updateBookmarkList(){
+
+    var listToUpdate = databaseReference.child('bookmark/'+user).get();
+    return listToUpdate;
+  }*/
+
+
+
+
+
+  /*getAllBookMarks() async {
+    var dataSnapshot = await databaseReference.child('bookmark/author').equalTo(user);
+    var list = [];
+    for(var i in dataSnapshot.ke)
+
+    }
+    return list;
+  }*/
+
 
 }
-
-
 
 
 
