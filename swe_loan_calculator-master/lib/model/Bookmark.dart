@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 
 class BookMarkInfo {
@@ -19,6 +20,22 @@ class BookMarkInfo {
       'bookMarkList': bookMarkedList.toList(),
     };
   }
+}
+
+class BookMarkController{
+  final databaseReference = FirebaseDatabase.instance.reference();
+  final user = FirebaseAuth.instance.currentUser.uid;
+
+  DatabaseReference saveBookmark(BookMarkInfo bookMarkInfo) {
+    databaseReference.child('bookmark/'+user).remove();
+    var id = databaseReference.child('bookmark/'+user).push();
+    id.set(bookMarkInfo.toJson());
+    return id;
+  }
+  List updateBookmarkList(){
+
+  }
+
 }
 
 

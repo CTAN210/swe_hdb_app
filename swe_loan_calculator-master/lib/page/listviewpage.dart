@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:swe_loan_calculator/model/Bookmark.dart';
 import 'package:swe_loan_calculator/src/HDBListings.dart' as locations;
 import 'package:swe_loan_calculator/page/BookmarkView.dart';
 import 'package:swe_loan_calculator/model/Bookmark.dart';
@@ -41,7 +42,7 @@ class ListViewPageState extends State<ListViewPage> {
 
   final List bookmarkList = [];
   final List checkList = [];
-  final databaseReference = FirebaseDatabase.instance.reference();
+  var BookmarkController = BookMarkController();
 
   Future<List<locations.HDBListing>> filtered_hdb;
 
@@ -70,12 +71,7 @@ class ListViewPageState extends State<ListViewPage> {
   }
 
 
-  DatabaseReference saveBookmark(BookMarkInfo bookMarkInfo) {
-    databaseReference.child('bookmark/').remove();
-    var id = databaseReference.child('bookmark/').push();
-    id.set(bookMarkInfo.toJson());
-    return id;
-  }
+
 /*  BookMarkInfo createBookMarkInfo(record) {
     var attributes = <String, dynamic>{
       'author': '',
@@ -103,6 +99,7 @@ class ListViewPageState extends State<ListViewPage> {
     return bookMarkInfos;
   }
   */
+
 
 
 
@@ -184,7 +181,7 @@ class ListViewPageState extends State<ListViewPage> {
                                     });
                                     BookMarkItem.bookMarkedList=checkList;
 
-                                    saveBookmark(BookMarkItem);
+                                    BookmarkController.saveBookmark(BookMarkItem);
                                   },
                                 ),
                                 IconButton(
