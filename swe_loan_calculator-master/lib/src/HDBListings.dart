@@ -22,16 +22,29 @@ class LatLng {
 @JsonSerializable()
 class HDBListing{
 
+  /// Each HDB Listing will have their own attributes as declared below.
+
+    /// town: The location of the listing, i.e. Ang Mo Kio, Bishan, Toa Payoh, etc.
    String town;
+   /// storey_range: The range of the floor of the listing. No exact storey is given.
    String storey_range;
+   /// floor_area_sqm: The floor area of the listing given in sqm.
    double floor_area_sqm;
+   /// flat_model: The flat model of the listing, i.e. New Generation, Improved, etc.
    String flat_model;
+   /// lease_commence_date: The date that the listing obtained its lease. Each lease expires after 99 years.
    double lease_commence_date;
+   /// remaining_lease: The time remaining on the lease of the listing, measured in Years and Months.
    String remaining_lease;
+   /// resale_price: The price at which the listing is being sold at.
    double resale_price;
+   /// longitude: The longitude value of the listing's location
    double longitude;
+   /// latitude: The latitude value of the listing's location
    double latitude;
+   /// address: The address of the listing, given by it's street name and block number.
    String address;
+   /// ID: The unique identifier number of each listing.
    double ID;
 
   HDBListing({
@@ -99,7 +112,3 @@ Future<HDBListingModel> getHDBListing() async {
   final response = await rootBundle.loadString('assets/HDBListings.json');
   return HDBListingModel.fromJson(json.decode(response));
 }
-
-
-
-// do this at the parent widget -- pass data into variables and can pass data around
