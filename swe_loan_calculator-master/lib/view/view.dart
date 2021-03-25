@@ -16,10 +16,10 @@ import 'package:swe_loan_calculator/src/shoppingmalls.dart' as ShoppingMalls;
 import 'package:swe_loan_calculator/controller/controller.dart' as controller;
 import 'package:swe_loan_calculator/model/model.dart' as model;
 
-
+///Boundary class that builds Widget for Help page view
 class HelpPageView extends State<controller.HelpPageController>{
 
-
+/// method to build widgets to display info on the help page
   Widget build(BuildContext context){
     return Scaffold(
         appBar: AppBar(
@@ -116,10 +116,11 @@ Answer: Yes of course! You can share the listing on Whatsapp, Messenger and Tele
   }
 }
 
-
+/// Boundary class that contains the structure of the Loan Calculator View page.
 class LoanCalView extends State<controller.LoanCalController> {
+  ///attribute to determine which widgets to be included in the screenshot
   ScreenshotController screenshotController = ScreenshotController();
-
+///Method that builds widget. This includes the widgets included in the appbar such as homepage button and screenshot button.
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
@@ -164,23 +165,33 @@ class LoanCalView extends State<controller.LoanCalController> {
       ),
     );
   }
+  ///method to take screenshot and share to external apps.
   void _takeScreenshotandShare() async {
     final imageFile = await screenshotController.capture();
     Share.shareFiles([imageFile.path], text: "Shared from HDP App");
   }
 }
 
-
+/// Boundary class for the Loan calculator slider page that allow users to input values for the calculation.
 class LoanCalSliderView extends State<controller.LoanCalSliderController> {
   LoanCalSliderView({this.presetPrincipal});
+  /// value passed in from the constructor for fixed Principal value calculations.
+  /// If it is null, a general loan calculator is used.
+  /// If there is a preset princiapl, the fixed loan calculator is used.
   double presetPrincipal;
+  /// the default interest value
   static double _intValue = 0.0;
+  /// the default loan tenure duration
   static int _loanTenureValue = 1;
+  /// the default loan percentage
   static int _loanValue = 10;
-
+  /// string to store the principal value user inputs.
   static String _principalValue;
+  /// attribute used to determine the text entered by the user.
   var myController = TextEditingController();
 
+  /// method to determine the principal value to be used based on whether its a
+  /// fixed loan calculator or general loan calculator.
   String obtainPrincipal(double presetPrincipal) {
     if(presetPrincipal!=null) {
       return presetPrincipal.toString();
@@ -188,7 +199,7 @@ class LoanCalSliderView extends State<controller.LoanCalSliderController> {
       return '500000';
     }
   }
-
+  ///build method to construct the slider widgets for the user to enter the values for the calculation.
   Widget build(BuildContext context) {
     if(presetPrincipal!=null) {
       myController.text =  obtainPrincipal(presetPrincipal);
@@ -387,39 +398,51 @@ class LoanCalSliderView extends State<controller.LoanCalSliderController> {
     );
 
   }
+  ///method to check if principalValue entered by user is null. If null, returns default value of 600000.
   static double checkNull(String principalValue){
     try{return(double.parse(_principalValue));}
     catch(e){
       return 600000;}
   }
+  ///get method to obtain interest value
   static double getIntValue(){
     return _intValue;
   }
+  /// get method to obtain principal value
   static double getPrincipalValue(){
     return checkNull(_principalValue);
   }
+  ///get method to obtain Loan Tenure duration
   static int getLoanTenure(){
     return _loanTenureValue;
   }
+  ///get method to obtain Loan percentage.
   static int getLoan(){
     return _loanValue;
   }
 }
 
-
+///Boundary class that displays the visualisations of the calculation by the oan calculator.
 class LoanVisualView extends StatelessWidget{
+  ///interest amount selected
   final  double intValue;
+  ///loan tenure duration user selected
   final int loanTenureValue;
+  /// loan value percentage user selected
   final int loanValue;
+  /// principal amount used for calculation
   final double principalValue;
+  ///attribute to determine which widgets to be included in the screenshot
+  final ScreenshotController screenshotController = ScreenshotController();
 
-
+  /// constructor for LoanVisualView
   LoanVisualView({Key key, this.title, this.loanTenureValue,
     this.principalValue, this.loanValue, this.intValue}) : super(key: key);
   final String title;
-  final ScreenshotController screenshotController = ScreenshotController();
 
 
+
+  ///method to build the structure of the loan visualisation page
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -468,22 +491,23 @@ class LoanVisualView extends StatelessWidget{
         )
     );
   }
+  ///method to take screen shot of widgets selected by the screenshot controller and share it to an external app.
   void _takeScreenshotandShare() async {
     final imageFile = await screenshotController.capture();
     Share.shareFiles([imageFile.path], text: "Shared from HDP App");
   }
 }
 
-
+///boundary class that shows the monthly component of the loan visualisation
 class MonthlyVisualisationView extends State<controller.MonthlyVisualisationController> {
-
-  //double interest=double.parse(intValue);
+  ///datamap used to store the values to be displayed by the piechart.
   Map<String, double> dataMap = {
     "Loan Amount ": controller.LoanController.calculateMonthlyLoanAmount(
         LoanCalSliderView.getPrincipalValue(), LoanCalSliderView.getIntValue()/100,
         LoanCalSliderView.getLoanTenure(),LoanCalSliderView.getLoan()),
     "Interest ": controller.LoanController.calculateMonthlyInterest(LoanCalSliderView.getPrincipalValue(), LoanCalSliderView.getIntValue()/100,LoanCalSliderView.getLoan())};
 
+  ///method used to build the widget to visualise the monthly payment component of the loan visualisation.
   Widget build(BuildContext context) {
     return Column(
         children: <Widget>[
@@ -515,12 +539,13 @@ class MonthlyVisualisationView extends State<controller.MonthlyVisualisationCont
   }
 }
 
-
+///boundary class that shows the total component of the loan visualisation
 class TotalVisualisationView extends State<controller.TotalVisualisationController> {
+  ///datamap used to store the values to be displayed by the piechart.
   Map<String, double> dataMap = {
     "Loan Amount ": controller.LoanController.calculateTotalLoanAmount(LoanCalSliderView.getPrincipalValue(), LoanCalSliderView.getLoan()),
     "Down Payment ": controller.LoanController.calculateDownPayment(LoanCalSliderView.getPrincipalValue(), LoanCalSliderView.getLoan()),};
-
+  ///method used to build the widget to visualise the monthly payment component of the loan visualisation.
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
