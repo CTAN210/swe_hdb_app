@@ -8,52 +8,55 @@ import 'package:swe_loan_calculator/src/HDBListings.dart' as locations;
 import 'package:swe_loan_calculator/view/view.dart' as view;
 import 'package:swe_loan_calculator/model/model.dart' as model;
 
-
+///Controller class that builds the HelpPageView state
 class HelpPageController extends StatefulWidget {
   @override
   view.HelpPageView createState() => view.HelpPageView();
 }
 
-
+///controller class that builds the LoanCalculatorView page.
 class LoanCalController extends StatefulWidget {
-
+  ///constructor for LoanCalController
   LoanCalController({Key key, this.presetPrincipal}) : super(key: key);
+  /// value of the presetPrincipal
   final double presetPrincipal;
 
   @override
   view.LoanCalView createState() => view.LoanCalView();
 }
 
-
+///controller class that builds the LoanSliderView page.
 class LoanCalSliderController extends StatefulWidget {
+  ///constructor for LoanCalSliderController
   LoanCalSliderController({Key key, this.presetPrincipal}) : super(key: key);
+  /// value for presetPrincipal
   double presetPrincipal;
   @override
   view.LoanCalSliderView createState() => view.LoanCalSliderView(presetPrincipal: presetPrincipal);
 }
 
-
+/// controller class that makes all the loan calculation
 class LoanController{
-
+  ///method used to calculate total loan amount
   static double calculateTotalLoanAmount(double principalValue, int loanValue){
     return (loanValue/100)*principalValue;
   }
-
+  ///method used to calculate down payment amount
   static double calculateDownPayment(double principalValue, int loanValue ){
     return ((100-loanValue)/100)*principalValue;
   }
-
+  ///method used to calculate monthly payment amount.
   static double calculateMonthlyPayment(double principalValue,double interestRate,int loanTenure,
       int loanValue){
     double totalLoanAmount = calculateTotalLoanAmount(principalValue, loanValue);
     return (totalLoanAmount*(interestRate))/(1-1/pow(1+interestRate,loanTenure))/12;
   }
-
+  ///method used to calculate monthly interest amount
   static double calculateMonthlyInterest(double principalValue, double interestRate, int loanValue){
     double totalLoanAmount = calculateTotalLoanAmount(principalValue, loanValue);
     return (totalLoanAmount*interestRate)/12;
   }
-
+  ///method used to calculate monthly loan amount
   static double calculateMonthlyLoanAmount(double principalValue, double interestRate,
       int loanTenure, int loanValue){
     return calculateMonthlyPayment(principalValue, interestRate, loanTenure,loanValue)-
@@ -61,13 +64,17 @@ class LoanController{
   }
 }
 
-
+///controller class for Monthly visualisation. Creates state for the monthly visualisation view.
 class MonthlyVisualisationController extends StatefulWidget {
+  ///interest amount
   final double intValue;
+  ///loan tenure duration
   final int loanTenureValue;
+  /// Percentage of payment to be paid with loan.
   final int loanValue;
+  ///principal value of the listing
   final double principalValue;
-
+  ///constructor for the MonthlyVisualisationController
   MonthlyVisualisationController({Key key, this.intValue,this.loanTenureValue,
     this.principalValue, this.loanValue}) : super(key: key);
   @override
@@ -75,7 +82,7 @@ class MonthlyVisualisationController extends StatefulWidget {
 
 }
 
-
+///controller class for the total visualisation to build its view state.
 class TotalVisualisationController extends StatefulWidget {
   @override
   view.TotalVisualisationView createState() => view.TotalVisualisationView();
@@ -91,15 +98,17 @@ class FilterSliderController extends StatefulWidget {
 
 }
 
-
+///controller class to interact with the database.
 class BookMarkController{
+  ///reference of the path in the database
   final databaseReference = FirebaseDatabase.instance.reference();
+  ///user id key of the current user
   final user = FirebaseAuth.instance.currentUser.uid;
-  final id = FirebaseAuth.instance.currentUser.metadata;
 
+  ///method to update the BookMarkInfo in the database.
   void saveBookmark(model.BookMarkInfoModel bookMarkInfo) {
     databaseReference.child('bookmark/'+user).remove();
-    var id = databaseReference.child('bookmark/'+user).set(bookMarkInfo.toJson());
+    databaseReference.child('bookmark/'+user).set(bookMarkInfo.toJson());
 
 
   }
