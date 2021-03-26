@@ -551,7 +551,7 @@ class TotalVisualisationView extends State<controller.TotalVisualisationControll
   }
 }
 
-
+///Boundary class that contains the structure of the Filter page
 class FilterView extends StatelessWidget {
   FilterView({Key key, this.title}) : super(key: key);
   final String title;
@@ -589,7 +589,7 @@ class FilterView extends StatelessWidget {
   }
 }
 
-
+///Boundary class for the Filter slider page that allows users to input values for the filtering
 class FilterSliderView extends State<controller.FilterSliderController> {
 
 
@@ -1105,7 +1105,9 @@ class ListPageView extends State<controller.ListPageController> {
                                 filtered_hdb1[index].floor_area_sqm.toString() +
                                 '\n' +
                                 'remaining_lease: ' +
-                                filtered_hdb1[index].remaining_lease),
+                                filtered_hdb1[index].remaining_lease +
+                                '\n' +
+                                filtered_hdb1[index].flat_type),
                             trailing: Wrap(
                               spacing: -20,
                               children: <Widget>[
@@ -1174,7 +1176,7 @@ class ListPageView extends State<controller.ListPageController> {
 /// Class to organise the display of Full Details of a HDB Listing
 class FullDetailsView extends State<controller.FullDetailsController> {
   /// Marker to display exact location of a HDB Listing on the Proximity Map
-  final Marker HDBmarker = Marker();
+  final Marker HDBMarker = Marker();
   /// Specific HDB Listing to be displayed
   HDBListings.HDBListing hdb;
 
@@ -1203,7 +1205,7 @@ class FullDetailsView extends State<controller.FullDetailsController> {
   Widget build(BuildContext context) {
 
     hdb = ModalRoute.of(context).settings.arguments;
-    //print(hdb.town);
+    print(hdb.latitude.toString() + ',' + hdb.longitude.toString());
 
 
     return MaterialApp(
@@ -1223,19 +1225,19 @@ class FullDetailsView extends State<controller.FullDetailsController> {
   Widget _detailsBody(hdb) {
     return ListView(
       padding: const EdgeInsets.fromLTRB(24.0, 12.0, 24.0, 12.0),
-      children: [Text('Resale price: ${hdb.resale_price}',
+      children: [Text('Resale price: ' + hdb.resale_price.toString(),
         style: TextStyle(fontWeight: FontWeight.w900, fontSize: 25, color: Colors.black87),
         textAlign: TextAlign.left,
       ),
-        Text('Address: ${hdb.address}',
+        Text('Address: ' + hdb.address,
           style: TextStyle(fontWeight: FontWeight.w900, fontSize: 20, color: Colors.black87),
           textAlign: TextAlign.left,
         ),
-        Text('Type: ${hdb.flat_model}',
+        Text('Type: ' + hdb.flat_type,
           style: TextStyle(fontWeight: FontWeight.w900, fontSize: 17, color: Colors.black45),
           textAlign: TextAlign.left,
         ),
-        Text('Area: ${hdb.town}',
+        Text('Area: ' + hdb.town,
           style: TextStyle(fontWeight: FontWeight.w900, fontSize: 17, color: Colors.black45),
           textAlign: TextAlign.left,
         ),
@@ -1264,8 +1266,9 @@ class FullDetailsView extends State<controller.FullDetailsController> {
           ),
           textAlign : TextAlign.center,
         ),
+
         model.MapModel(
-          center: LatLng(hdb.latitude, hdb.longitude), // replace this
+          center: LatLng(hdb.latitude, hdb.longitude),
           mapController: controller,
           onMapCreated: _onMapCreated,
           markers: _markers,
@@ -1289,7 +1292,7 @@ class MapPageView extends State<controller.MapPageController> {
   Future<void> _onMapCreated(GoogleMapController controller) async {
 
     filtered_hdb = await ModalRoute.of(context).settings.arguments;
-    print('abc');
+    print('FILTERED HDB MAP VIEW WORKING');
     print(filtered_hdb[3].longitude);
     // final googleOffices = await locations.getHDBListing();
     setState(() {

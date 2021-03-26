@@ -165,7 +165,7 @@ class ListPageController extends StatefulWidget {
   @override
   view.ListPageView createState() => view.ListPageView();
 
-/*  static List<locations.HDBListing> _filterListings(double upperPV, double lowerPV, double upperFlArea, double lowerFlArea, List<locations.HDBListing> List){
+/*static List<locations.HDBListing> _filterListings(double upperPV, double lowerPV, double upperFlArea, double lowerFlArea, List<locations.HDBListing> List){
 
     final List<locations.HDBListing> finalList = [];
     for (final listing in List){

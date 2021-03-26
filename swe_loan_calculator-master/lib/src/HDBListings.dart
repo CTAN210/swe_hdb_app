@@ -32,6 +32,8 @@ class HDBListing{
    double floor_area_sqm;
    /// flat_model: The flat model of the listing, i.e. New Generation, Improved, etc.
    String flat_model;
+   /// flat_type: The flat type of the listing, i.e. 1 Room, 2 Room, etc.
+   String flat_type;
    /// lease_commence_date: The date that the listing obtained its lease. Each lease expires after 99 years.
    double lease_commence_date;
    /// remaining_lease: The time remaining on the lease of the listing, measured in Years and Months.
@@ -52,6 +54,7 @@ class HDBListing{
     this.storey_range,
     this.floor_area_sqm,
     this.flat_model,
+    this.flat_type,
     this.lease_commence_date,
     this.remaining_lease,
     this.resale_price,
