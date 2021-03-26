@@ -9,6 +9,7 @@ import 'package:swe_loan_calculator/controller/controller.dart' as controller;
 import 'package:swe_loan_calculator/view/view.dart' as view;
 import 'package:swe_loan_calculator/model/model.dart' as model;
 
+int abc;
 
 
 /// Class to organise the display of main page view
