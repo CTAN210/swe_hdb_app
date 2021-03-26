@@ -995,16 +995,17 @@ class FilterSliderView extends State<controller.FilterSliderController> {
   }
 }
 
-
+/// Class to organise the display of Filtered HDB Listings on a List View
 class ListPageView extends State<controller.ListPageController> {
-
+  /// List of Bookmarked HDB Listings
   final List bookmarkList = [];
+  /// Controller that handles the logic behind Bookmarking a HDBListings
   var BookmarkController = controller.BookMarkController();
-
+  /// List of Filtered HDB
   Future<List<locations.HDBListing>> filtered_hdb;
 
 
-
+  /// Function to set markers on Google Map
   Future<List<locations.HDBListing>> _onMapView() async {
     final HDBData = await locations.getHDBListing();
     final List<locations.HDBListing> finalList = [];
@@ -1027,6 +1028,7 @@ class ListPageView extends State<controller.ListPageController> {
     }
   }
 
+  /// Function to organise display of entire List View Page
   @override
   Widget build(BuildContext context)  {
     var count =0;
@@ -1169,20 +1171,20 @@ class ListPageView extends State<controller.ListPageController> {
   }
 }
 
-
+/// Class to organise the display of Full Details of a HDB Listing
 class FullDetailsView extends State<controller.FullDetailsController> {
-
+  /// Marker to display exact location of a HDB Listing on the Proximity Map
   final Marker HDBmarker = Marker();
-
+  /// Specific HDB Listing to be displayed
   HDBListings.HDBListing hdb;
 
-
+  /// Markers to display exact locations of Shopping Malls in Singapore
   final Map<String, Marker> _markers = {};
 
-
+  /// Controller to control logic of displaying Proximity Map using Google Maps API
   GoogleMapController controller;
 
-
+  /// Function to set markers on Proximity Map
   Future<void> _onMapCreated(GoogleMapController controller) async {
     final shoppingMalls = await ShoppingMalls.getShoppingMalls();
     setState(() {
@@ -1196,6 +1198,7 @@ class FullDetailsView extends State<controller.FullDetailsController> {
       _markers[hdb.address] = HDBMarker;
     });
   }
+  /// Function to organise display of entire Full Details Page
   @override
   Widget build(BuildContext context) {
 
@@ -1216,6 +1219,7 @@ class FullDetailsView extends State<controller.FullDetailsController> {
     );
   }
 
+  /// Function to organise the display of details extracted from specific HDB Listing
   Widget _detailsBody(hdb) {
     return ListView(
       padding: const EdgeInsets.fromLTRB(24.0, 12.0, 24.0, 12.0),
@@ -1273,14 +1277,15 @@ class FullDetailsView extends State<controller.FullDetailsController> {
 
 }
 
-
+/// Class to organise the display of Filtered HDB Listings on a GoogleMap
 class MapPageView extends State<controller.MapPageController> {
-
+  /// List of HDB Listings that fit within Filter Conditions
   List<HDBListings.HDBListing> filtered_hdb;
-
+  /// List of markers to highlight the exact location of Filtered HDB Listings on a Map
   final Map<String, Marker> _markers = {};
+  /// Controller to control logic of displaying Google Map using Google Maps API
   GoogleMapController controller;
-
+  /// Function to set markers on Google Map
   Future<void> _onMapCreated(GoogleMapController controller) async {
 
     filtered_hdb = await ModalRoute.of(context).settings.arguments;
@@ -1304,7 +1309,7 @@ class MapPageView extends State<controller.MapPageController> {
   }
 
 
-
+  /// Function to organise display of entire Map Page
   @override
   Widget build(BuildContext context) {
 
@@ -1325,7 +1330,7 @@ class MapPageView extends State<controller.MapPageController> {
     ),
     );
   }
-
+  /// Function to organise the display of Google Map and markers of filtered HDB Listings
   Widget _detailsBody() {
     return ListView(
       padding: const EdgeInsets.fromLTRB(24.0, 12.0, 24.0, 12.0),

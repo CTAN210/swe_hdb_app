@@ -125,15 +125,23 @@ class BookMarkController{
 
 }
 
-
+/// Class to instantiate ListPageView and control the logic behind displaying Filtered HDB Listings on a List View
 class ListPageController extends StatefulWidget {
+  /// Upper Price Limit
   final int upperPV;
+  /// Lower Price Limit
   final int lowerPV;
+  /// Upper Floor Area Limit
   final int upperFlArea;
+  /// Lower Floor Area Limit
   final int lowerFlArea;
+  /// Flat Type
   final int value1;
+  /// Location
   final int value2;
+  /// Remaining Lease Limit
   final int remainLease;
+  /// Username
   final String user = FirebaseAuth.instance.currentUser.displayName;
   var pulledList;
   List<dynamic> checkList;
@@ -171,20 +179,20 @@ class ListPageController extends StatefulWidget {
 
 }
 
-
+/// Class to instantiate FullDetailsController and control the logic behind displaying Full Details of a HDB Listing
 class FullDetailsController extends StatefulWidget {
   @override
   view.FullDetailsView createState() => view.FullDetailsView();
 }
 
-
+/// Class to instantiate MapPageController and control the logic behind displaying Filtered HDB Listings on a GoogleMap
 class MapPageController extends StatefulWidget {
 
   @override
   view.MapPageView createState() => view.MapPageView();
 }
 
-
+/// Class to organise display of entire Map View Page
 class MapPageScreen extends StatelessWidget{
   MapPageScreen({Key key, this.title}) : super(key: key);
   final String title;

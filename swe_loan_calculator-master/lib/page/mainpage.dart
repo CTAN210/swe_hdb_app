@@ -11,12 +11,12 @@ import 'package:swe_loan_calculator/model/model.dart' as model;
 
 
 
-
+/// Class to organise the display of main page view
 class MyHomePage extends StatelessWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
   final String title;
 
-
+  /// Function to organise the entire display of main page view
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,6 +24,7 @@ class MyHomePage extends StatelessWidget {
         body: Center(
             child: Column(
                 children: <Widget>[
+                  /// Button to logout
                   FlatButton(
                     onPressed: () {
                       final provider =
@@ -36,29 +37,30 @@ class MyHomePage extends StatelessWidget {
                     ),
                   ),
 
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => controller.LoanCalController(),
-                        ),
-                      );
-                    },
-                    child: Text("Loan Calculator",
-                        style: TextStyle(fontWeight: FontWeight.w900, fontSize: 30)),
-                  ),
-                  ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          shape: CircleBorder(), primary: Colors.black),
-                      child: Container(
-                        width: 30,
-                        height: 30,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(shape: BoxShape.circle),
-                        child:Icon(Icons.info_outline),
+                  /// Button to search/filter for listings
+                  IconButton(
+                    icon: Image.asset('assets/images/search.png'),
+                    iconSize: 150,
+                    onPressed: () {Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => view.FilterView(),
                       ),
-
+                    );},
+                  ),
+                  /// Button to go to loan calculator
+                  IconButton(
+                    icon: Image.asset('assets/images/calculator.png'),
+                    iconSize: 150,
+                    onPressed: () {Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => controller.LoanCalController(),
+                      ),
+                    );},
+                  ),
+                  /// Button to go to help page
+                  OutlineButton(
                       onPressed: () {
                         Navigator.push(
                           context,
@@ -66,45 +68,26 @@ class MyHomePage extends StatelessWidget {
                             builder: (context) => controller.HelpPageController(),
                           ),
                         );
-                      }),
-                  GestureDetector(
-                    onTap:(){
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => view.FilterView(),
-                        ),
-                      );
-                    },
-                    child: Text("Search/Filter", style: TextStyle(fontWeight: FontWeight.w900, fontSize:30)), //Text
+                      },
+                      child: Stack(
+                        children: <Widget>[
+                          Align(
+                              alignment: Alignment.centerRight,
+                              child: Icon(Icons.info)
+                          ),
+                        ],
+                      ),
+                      highlightedBorderColor: Colors.white,
+                      color: Colors.white,
+                      borderSide: new BorderSide(color: Colors.white),
+                      shape: new RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(5.0)
+                      )
                   ),
-                  GestureDetector(
-                    onTap:(){
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder:(context) => controller.MapPageScreen(),
-                        ),
-                      );
-                    },
-                    child: Text("Map View", style: TextStyle(fontWeight: FontWeight.w900, fontSize:30)), //Text
-                  ),
+                  ///Display bookmarked listings
+
                 ]
             )
         ));
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -7,6 +7,8 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:swe_loan_calculator/controller/controller.dart' as controller;
 import 'package:swe_loan_calculator/view/view.dart' as view;
 
+
+/// Class that creates a Map model that will handle the specifics of displaying a Google Map on a page.
 class MapModel extends StatelessWidget {
   final LatLng center;
 
