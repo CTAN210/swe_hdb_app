@@ -1,0 +1,19 @@
+1. Question: How is the total and monthly loan payment breakdown derived?
+
+Answer: It is derived based on the HDB Loan Interest Rates. 
+
+2. Question: I have no preferred criteria, is it possible to just view all available listings? 
+
+Answer: Yes! Simply press the 'Search' button without adjusting any of the filters! 
+
+3. Question: Can I see the nearby facilities of listing choice? 
+
+Answer: Yes, you can do so in the Detailed Property View! Scroll down and you'll see a map  and scroll bar with colour coded nearby facilities.  Alternatively, you can click the View on Map icon and view the property on the actual Google Map. 
+
+4. Question: How can I view a save a listing for easy viewing later on? 
+
+Answer: You can bookmark the listing through the listing view, map view or the individual property view! These bookmarked listings will appear on your home screen. If you change your mind, simply click the bookmark button again to un-bookmark it
+
+5.Question: I see a listing that I like, can I share it?
+
+Answer: Yes of course! You can share the listing on Whatsapp, Messenger and Telegram through the share button located at the top right hand corner of the Property View!
