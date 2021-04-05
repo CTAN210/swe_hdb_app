@@ -109,9 +109,9 @@ class BookMarkController{
   void saveBookmark(model.BookMarkInfoModel bookMarkInfo) {
     databaseReference.child('bookmark/'+user).remove();
     databaseReference.child('bookmark/'+user).set(bookMarkInfo.toJson());
-
-
   }
+
+
 /*  updateBookmarkList(){
 
     var listToUpdate = databaseReference.child('bookmark/'+user).get();
@@ -153,7 +153,7 @@ class ListPageController extends StatefulWidget {
   /// Username
   final String user = FirebaseAuth.instance.currentUser.displayName;
   var pulledList;
-  List<dynamic> checkList;
+
 
   ListPageController(
       {Key key,
@@ -166,7 +166,7 @@ class ListPageController extends StatefulWidget {
         this.value2,
         this.remainLease,
         this.pulledList,
-        this.checkList
+        //this.checkList
       })
       : super(key: key);
   final String title;

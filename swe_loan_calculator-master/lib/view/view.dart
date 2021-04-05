@@ -632,12 +632,29 @@ class FilterSliderView extends State<controller.FilterSliderController> {
   var pulledList;
 
 
-  var myController = TextEditingController();
+/*  void fetchBookmarkData(){
+    var BookmarkController = controller.BookMarkController();
+    var user = BookmarkController.user;
+    BookmarkController.databaseReference.child('bookmark/'+user+'/bookMarkList/').once().then(
+            (DataSnapshot data){
+          setState((){
+            pulledList = data.value;
+          });
+        }
+    );
+  }
+  @override
+  void initState(){
+    fetchBookmarkData();
+    super.initState();
+  }*/
 
+  var myController = TextEditingController();
+  @override
   Widget build(BuildContext context) {
     var BookmarkController = controller.BookMarkController();
     var user = BookmarkController.user;
-    List update(){
+/*    List update(){
       BookmarkController.databaseReference.child('bookmark/'+user+'/bookMarkList/').once().then(
               (DataSnapshot data){
             setState((){
@@ -646,7 +663,7 @@ class FilterSliderView extends State<controller.FilterSliderController> {
           }
       );
       return pulledList;
-    }
+    }*/
 
 
     return Column(
@@ -951,19 +968,7 @@ class FilterSliderView extends State<controller.FilterSliderController> {
                         style: TextStyle(fontSize: 16.0),
                       )),
                   onPressed: () async{
-                    pulledList=update();
-                    var checkList =[];
-                    int j;
-                    try{
-                      j = pulledList.length;
-                    }
-                    catch(e){
-                      j=0;
-                    }
-                    for(var i=0;i< j;i++){
-                      if(!checkList.contains(pulledList[i]))
-                      {checkList.add(pulledList[i]);}
-                    }
+
                     final result = await Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -975,8 +980,6 @@ class FilterSliderView extends State<controller.FilterSliderController> {
                               value1: _value1,
                               value2: _value2,
                               remainLease: _remainLease,
-                              pulledList: pulledList,
-                              checkList: checkList,
 
                             )
                         )
@@ -1020,10 +1023,39 @@ class FilterSliderView extends State<controller.FilterSliderController> {
 class ListPageView extends State<controller.ListPageController> {
   /// List of Bookmarked HDB Listings
   final List bookmarkList = [];
+  var checkList=[];
   /// Controller that handles the logic behind Bookmarking a HDBListings
   var BookmarkController = controller.BookMarkController();
   /// List of Filtered HDB
   Future<List<locations.HDBListing>> filtered_hdb;
+  void fetchBookmarkData(){
+    var user = BookmarkController.user;
+    BookmarkController.databaseReference.child('bookmark/'+user+'/bookMarkList/').once().then(
+            (DataSnapshot data){
+          setState((){
+            checkList=[];
+            widget.pulledList = data.value;
+            int j;
+            try{
+              j = widget.pulledList.length;
+            }
+            catch(e){
+              j=0;
+            }
+            for(var i=0;i< j;i++){
+              if(!checkList.contains(widget.pulledList[i]))
+              {checkList.add(widget.pulledList[i]);}
+            }
+          });
+        }
+    );
+  }
+  @override
+  void initState(){
+    fetchBookmarkData();
+    super.initState();
+  }
+
 
 
   /// Function to set markers on Google Map
@@ -1067,7 +1099,7 @@ class ListPageView extends State<controller.ListPageController> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('HDB Lists (Filtered)'+widget.checkList.length.toString()),
+        title: Text('HDB Lists (Filtered)'),
         actions: <Widget>[
           IconButton(
               icon: const Icon(Icons.list),
@@ -1076,7 +1108,7 @@ class ListPageView extends State<controller.ListPageController> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => controller.BookmarkPageController(BookMarkItem,widget.checkList)),
+                        builder: (context) => controller.BookmarkPageController(BookMarkItem,checkList)),
                   );
                 });
               })
@@ -1092,11 +1124,6 @@ class ListPageView extends State<controller.ListPageController> {
 
                   List<locations.HDBListing> filtered_hdb1 = snapshot.data;
 
-                  // List<locations.HDBListing> filtered_hdb1 = snapshot.data[0];
-                  //List pulledList1 = snapshot.data[1];
-                  //for(var i in pulledList1){
-                  // checkList.add(i);
-                  //}
 
 
                   return ListView.builder(
@@ -1106,7 +1133,7 @@ class ListPageView extends State<controller.ListPageController> {
 
                         var isBookmarked =
                         //BookMarkItem.bookMarkedList.contains(filtered_hdb1[index]);
-                        widget.checkList.contains(filtered_hdb1[index].ID);
+                        checkList.contains(filtered_hdb1[index].ID);
 
 
 
@@ -1143,13 +1170,13 @@ class ListPageView extends State<controller.ListPageController> {
                                     setState(() {
                                       if (isBookmarked) {
                                         //BookMarkItem.bookMarkedList.remove(filtered_hdb1[index]);
-                                        widget.checkList.remove(filtered_hdb1[index].ID);
+                                        checkList.remove(filtered_hdb1[index].ID);
                                       } else {
                                         //BookMarkItem.bookMarkedList.add(filtered_hdb1[index]);
-                                        widget.checkList.add(filtered_hdb1[index].ID);
+                                        checkList.add(filtered_hdb1[index].ID);
                                       }
                                     });
-                                    BookMarkItem.bookMarkedList=widget.checkList;
+                                    BookMarkItem.bookMarkedList=checkList;
                                     BookmarkController.saveBookmark(BookMarkItem);
                                   },
                                 ),
