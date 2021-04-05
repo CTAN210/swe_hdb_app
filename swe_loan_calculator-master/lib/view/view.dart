@@ -3,23 +3,36 @@ import 'package:screenshot/screenshot.dart';
 import 'package:share/share.dart';
 import 'package:pie_chart/pie_chart.dart';
 import 'package:firebase_database/firebase_database.dart';
-
 import 'package:swe_loan_calculator/src/HDBListings.dart' as locations;
 import 'package:flutter/material.dart';
-
 import 'package:flutter/cupertino.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:swe_loan_calculator/src/HDBListings.dart' as HDBListings;
 import 'package:swe_loan_calculator/page/mainpage.dart';
 import 'package:swe_loan_calculator/src/shoppingmalls.dart' as ShoppingMalls;
-
 import 'package:swe_loan_calculator/controller/controller.dart' as controller;
 import 'package:swe_loan_calculator/model/model.dart' as model;
+import 'package:flutter/services.dart' show rootBundle;
 
 ///Boundary class that builds Widget for Help page view
 class HelpPageView extends State<controller.HelpPageController>{
+  String helpText = " ";
 
+  void fetchFileData() async{
+    String responseText;
+    responseText = await rootBundle.loadString('assets/helpPage.txt');
+
+    setState(() {
+      helpText = responseText;
+    });
+  }
+  @override
+  void initState(){
+    fetchFileData();
+    super.initState();
+  }
 /// method to build widgets to display info on the help page
+  @override
   Widget build(BuildContext context){
     return Scaffold(
         appBar: AppBar(
@@ -80,27 +93,7 @@ class HelpPageView extends State<controller.HelpPageController>{
                           Expanded(
                             child: SingleChildScrollView(
                               scrollDirection: Axis.vertical,
-                              child: Text(""" 
-1. Question: How is the total and monthly loan payment breakdown derived?
-
-Answer: It is derived based on the HDB Loan Interest Rates. 
-
-2. Question: I have no preferred criteria, is it possible to just view all available listings? 
-
-Answer: Yes! Simply press the 'Search' button without adjusting any of the filters! 
-
-3. Question: Can I see the nearby facilities of listing choice? 
-
-Answer: Yes, you can do so in the Detailed Property View! Scroll down and you'll see a map  and scroll bar with colour coded nearby facilities.  Alternatively, you can click the View on Map icon and view the property on the actual Google Map. 
-
-4. Question: How can I view a save a listing for easy viewing later on? 
-
-Answer: You can bookmark the listing through the listing view, map view or the individual property view! These bookmarked listings will appear on your home screen. If you change your mind, simply click the bookmark button again to un-bookmark it
-
-5.Question: I see a listing that I like, can I share it?
-
-Answer: Yes of course! You can share the listing on Whatsapp, Messenger and Telegram through the share button located at the top right hand corner of the Property View!
-              """,
+                              child: Text(helpText,
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 15,
@@ -114,6 +107,9 @@ Answer: Yes of course! You can share the listing on Whatsapp, Messenger and Tele
                     )],
                 ))));
   }
+
+
+
 }
 
 /// Boundary class that contains the structure of the Loan Calculator View page.
