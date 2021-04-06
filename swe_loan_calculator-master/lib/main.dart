@@ -1,14 +1,11 @@
-import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:swe_loan_calculator/page/loginpage.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:swe_loan_calculator/page/mainpage.dart' as mainPage;
-
-
-import 'package:swe_loan_calculator/controller/controller.dart' as controller;
-import 'package:swe_loan_calculator/view/view.dart' as view;
-import 'package:swe_loan_calculator/model/model.dart' as model;
+import 'package:swe_loan_calculator/controller/FilterPageController.dart' as filterpagecontroller;
+import 'package:swe_loan_calculator/controller/FullDetailsController.dart' as fulldetailscontroller;
+import 'package:swe_loan_calculator/controller/MapPageController.dart' as mappagecontroller;
 
 
 Future main() async {
@@ -30,9 +27,9 @@ class MyApp extends StatelessWidget {
     routes: {
       '/': (context) => LoginPage(),
       '/first': (context) => mainPage.HomePageStateful(),
-      '/second':(context) => view.FilterView(),
-      '/third': (context) => controller.FullDetailsController(),
-      '/fourth': (context) => controller.MapPageController(),
+      '/second':(context) => filterpagecontroller.FIlterPageController(),
+      '/third': (context) => fulldetailscontroller.FullDetailsController(),
+      '/fourth': (context) => mappagecontroller.MapPageController(),
     },
   );
 }

@@ -1,14 +1,14 @@
-import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:swe_loan_calculator/provider/google_sign_in.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:swe_loan_calculator/controller/controller.dart' as controller;
-import 'package:swe_loan_calculator/view/view.dart' as view;
-import 'package:swe_loan_calculator/model/model.dart' as model;
+import 'package:swe_loan_calculator/controller/BookMarkController.dart' as bookmarkcontroller;
+import 'package:swe_loan_calculator/controller/LoanCalController.dart' as loancalcontroller;
+import 'package:swe_loan_calculator/controller/HelpPageController.dart' as helppagecontroller;
+import 'package:swe_loan_calculator/controller/BookMarkPageController.dart' as bookmarkpagecontroller;
 
-int abc;
 
 class HomePageStateful extends StatefulWidget {
   @override
@@ -19,7 +19,7 @@ class HomePageStateful extends StatefulWidget {
 class MyHomePage extends State<HomePageStateful> {
   var bookmarkList=[];
   void updateList(){
-    var BookmarkController = controller.BookMarkController();
+    var BookmarkController = bookmarkcontroller.BookMarkController();
     var user = BookmarkController.user;
     BookmarkController.databaseReference.child('bookmark/'+user+'/bookMarkList/').once().then(
             (DataSnapshot data){
@@ -64,7 +64,7 @@ class MyHomePage extends State<HomePageStateful> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => controller.HelpPageController(),
+                      builder: (context) => helppagecontroller.HelpPageController(),
                     ),
                   );
                 },
@@ -105,7 +105,7 @@ class MyHomePage extends State<HomePageStateful> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => controller.LoanCalController(),
+                        builder: (context) => loancalcontroller.LoanCalController(),
                       ),
                     );
                   },
@@ -122,12 +122,11 @@ class MyHomePage extends State<HomePageStateful> {
             height: 300.0,
             width: 350,
             child: Column(children: <Widget>[
-                controller.BookmarkPageController(bookmarkList),
+                bookmarkpagecontroller.BookmarkPageController(bookmarkList),
             ]),
           ),
 
           /// Button to go to help page
-
           ///Display bookmarked listings
         ])));
 

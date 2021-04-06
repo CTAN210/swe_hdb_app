@@ -67,34 +67,6 @@ class HDBListing{
   factory HDBListing.fromJson(Map<String, dynamic> json) => _$HDBListingFromJson(json);
   Map<String, dynamic> toJson() => _$HDBListingToJson(this);
 
-  // HDBListing.fromJson(Map<String, dynamic> json) {
-  //   town = json['town'];
-  //    storey_range = json['storey_range'];
-  //    floor_area_sqm = json['floor_area_sqm'];
-  //    flat_model = json['flat_model'];
-  //    lease_commence_date = json['lease_commence_date'];
-  //    remaining_lease = json['remaining_lease'];
-  //    resale_price = json['resale_price'];
-  //    longitude = json['longitude'];
-  //    latitude = json['latitude'];
-  //    address = json['address'];
-  // }
-  //
-  // Map<String, dynamic> toJson() {
-  //  return {
-  //    'town': town,
-  //    'storey_range': storey_range,
-  //    'floor_area_sqm': floor_area_sqm,
-  //    'flat_model': flat_model,
-  //    'lease_commence_date': lease_commence_date,
-  //    'remaining_lease': remaining_lease,
-  //    'resale_price': resale_price,
-  //    'longitude': longitude,
-  //    'latitude': latitude,
-  //    'address': address
-  //  };
-  // }
-
 }
 
 @JsonSerializable()
