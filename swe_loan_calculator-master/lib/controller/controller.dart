@@ -112,26 +112,6 @@ class BookMarkController{
   }
 
 
-/*  updateBookmarkList(){
-
-    var listToUpdate = databaseReference.child('bookmark/'+user).get();
-    return listToUpdate;
-  }*/
-
-
-
-
-
-/*getAllBookMarks() async {
-    var dataSnapshot = await databaseReference.child('bookmark/author').equalTo(user);
-    var list = [];
-    for(var i in dataSnapshot.ke)
-
-    }
-    return list;
-  }*/
-
-
 }
 
 /// Class to instantiate ListPageView and control the logic behind displaying Filtered HDB Listings on a List View
@@ -218,19 +198,13 @@ class MapPageScreen extends StatelessWidget{
 
 
 class BookmarkPageController extends StatefulWidget{
-
-  model.BookMarkInfoModel hdbListings;
-  final List checkList;
-
-  // ignore: sort_constructors_first
-  BookmarkPageController(this.hdbListings,this.checkList);
-
-
+  var bookmarkList;
+  BookmarkPageController(this.bookmarkList);
   Future<List<locations.HDBListing>> update(checkList) async {
     final HDBData = await locations.getHDBListing();
     final List<locations.HDBListing> finalList = [];
     for(final listing in HDBData.items){
-      for(final i in this.checkList){
+      for(final i in checkList){
         if(listing.ID  == i ) {
           finalList.add(listing);
         }
@@ -242,4 +216,6 @@ class BookmarkPageController extends StatefulWidget{
 
   @override
   view.BookmarkPageView createState() => view.BookmarkPageView();
+
+
 }

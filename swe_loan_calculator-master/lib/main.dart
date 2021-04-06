@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:swe_loan_calculator/page/loginpage.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:swe_loan_calculator/page/mainpage.dart' as mainPage;
 
 
 import 'package:swe_loan_calculator/controller/controller.dart' as controller;
@@ -28,6 +29,8 @@ class MyApp extends StatelessWidget {
     initialRoute: '/',
     routes: {
       '/': (context) => LoginPage(),
+      '/first': (context) => mainPage.HomePageStateful(),
+      '/second':(context) => view.FilterView(),
       '/third': (context) => controller.FullDetailsController(),
       '/fourth': (context) => controller.MapPageController(),
     },

@@ -20,7 +20,7 @@ class LoginPage extends StatelessWidget {
           if (provider.isSigningIn) {
             return buildLoading();
           } else if (snapshot.hasData) {
-            return MyHomePage();
+            return HomePageStateful();
           } else {
             return SignUpWidget();
           }

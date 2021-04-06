@@ -457,7 +457,7 @@ class LoanVisualView extends StatelessWidget{
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => MyHomePage()));
+                          builder: (context) => HomePageStateful()));
                 },
               ),
 
@@ -592,6 +592,13 @@ class FilterView extends StatelessWidget {
         child: Scaffold(
             appBar: AppBar(
               title: Text("Search/Filter"),
+              leading: IconButton(
+                icon: const Icon(Icons.arrow_back),
+                onPressed: () {
+                  Navigator.pushNamedAndRemoveUntil(context, '/first',(_) => false
+                  );
+                },
+              ),
             ),
             body: Center(
                 child: Container(
@@ -632,39 +639,11 @@ class FilterSliderView extends State<controller.FilterSliderController> {
   var pulledList;
 
 
-/*  void fetchBookmarkData(){
-    var BookmarkController = controller.BookMarkController();
-    var user = BookmarkController.user;
-    BookmarkController.databaseReference.child('bookmark/'+user+'/bookMarkList/').once().then(
-            (DataSnapshot data){
-          setState((){
-            pulledList = data.value;
-          });
-        }
-    );
-  }
-  @override
-  void initState(){
-    fetchBookmarkData();
-    super.initState();
-  }*/
-
   var myController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     var BookmarkController = controller.BookMarkController();
     var user = BookmarkController.user;
-/*    List update(){
-      BookmarkController.databaseReference.child('bookmark/'+user+'/bookMarkList/').once().then(
-              (DataSnapshot data){
-            setState((){
-              pulledList = data.value;
-            });
-          }
-      );
-      return pulledList;
-    }*/
-
 
     return Column(
       children: <Widget>[
@@ -1028,6 +1007,7 @@ class ListPageView extends State<controller.ListPageController> {
   var BookmarkController = controller.BookMarkController();
   /// List of Filtered HDB
   Future<List<locations.HDBListing>> filtered_hdb;
+  /// update the checkList with list from the database.
   void fetchBookmarkData(){
     var user = BookmarkController.user;
     BookmarkController.databaseReference.child('bookmark/'+user+'/bookMarkList/').once().then(
@@ -1050,7 +1030,9 @@ class ListPageView extends State<controller.ListPageController> {
         }
     );
   }
+
   @override
+  ///constantly update the checklist.
   void initState(){
     fetchBookmarkData();
     super.initState();
@@ -1102,16 +1084,15 @@ class ListPageView extends State<controller.ListPageController> {
         title: Text('HDB Lists (Filtered)'),
         actions: <Widget>[
           IconButton(
-              icon: const Icon(Icons.list),
-              onPressed: () {
-                setState(() {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => controller.BookmarkPageController(BookMarkItem,checkList)),
+            icon: const Icon(Icons.home),
+            onPressed: () {
+              Navigator.pushNamedAndRemoveUntil(context, '/first',(_) => false
                   );
-                });
-              })
+
+
+
+            },
+          ),
         ],
       ),
       body: Container(
@@ -1400,42 +1381,72 @@ class MapPageView extends State<controller.MapPageController> {
 
 
 class BookmarkPageView extends State<controller.BookmarkPageController>{
-  Widget build(BuildContext context) {
-    var BookmarkList =  widget.update(widget.checkList);
+/*  var  updatedList =[];
+  void updateList(){
+    var BookmarkController = controller.BookMarkController();
+    var user = BookmarkController.user;
+    BookmarkController.databaseReference.child('bookmark/'+user+'/bookMarkList/').once().then(
+            (DataSnapshot data){
+          setState((){
+            //bookmarkList=[];
+            updatedList = data.value;
+          });
+        }
+    );
+  }
 
-    return Scaffold(
-        appBar: AppBar(
-          title: Text('Bookmarks'),
-        ),
-        body: Container(
+  @override
+  void initState(){
+    build(context);
+    super.initState();
+  }*/
+  @override
+  Widget build(BuildContext context) {
+
+    var BookmarkList =  widget.update(widget.bookmarkList);
+
+
+
+          return Container(
             child: FutureBuilder<List<locations.HDBListing>>(
               future: BookmarkList,
               builder: (context, snapshot){
+                var max=0;
+                try{
+                  max = snapshot.data.length;
+                }
+                catch(e){
+                  max=0;
+                }
                 var BookmarkList1 = snapshot.data;
-                var max = snapshot.data.length;
-                return ListView.builder(
+                //max = snapshot.data.length;
+                return Expanded(
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    scrollDirection: Axis.vertical,
+                    padding: EdgeInsets.all(16),
+                    //physics: BouncingScrollPhysics(),
+                    itemCount: max,
+                    itemBuilder: (context, index) {
 
+                      final user = BookmarkList1[index];
 
-                  padding: EdgeInsets.all(16),
+                      return Card(
+                          child:ListTile(
+                        onTap: () { Navigator.pushNamed(context, '/third', arguments: user) ;},
+                        title: Text(user.address + ", ID: " + user.ID.toString()),
+                        subtitle: Text(user.resale_price.toString()),
 
-                  physics: BouncingScrollPhysics(),
-                  itemCount: max,
-                  itemBuilder: (context, index) {
-
-                    final user = BookmarkList1[index];
-
-                    return ListTile(
-
-                      onTap: () { Navigator.pushNamed(context, '/third', arguments: user) ;},
-                      title: Text(user.address + ", ID: " + user.ID.toString()),
-                      subtitle: Text(user.resale_price.toString()),
-
-                    );
-                  },
+                      )
+                      );
+                    },
+                  )
                 );
               },
             )
-        )
-    );
+          );
+
+
+
   }
 }
