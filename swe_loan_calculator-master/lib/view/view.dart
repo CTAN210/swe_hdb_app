@@ -1088,9 +1088,6 @@ class ListPageView extends State<controller.ListPageController> {
             onPressed: () {
               Navigator.pushNamedAndRemoveUntil(context, '/first',(_) => false
                   );
-
-
-
             },
           ),
         ],
@@ -1381,33 +1378,38 @@ class MapPageView extends State<controller.MapPageController> {
 
 
 class BookmarkPageView extends State<controller.BookmarkPageController>{
-/*  var  updatedList =[];
-  void updateList(){
-    var BookmarkController = controller.BookMarkController();
+
+  var BookmarkController = controller.BookMarkController();
+  var checkList =[];
+  var pulledList =[];
+  void fetchBookmarkData(){
     var user = BookmarkController.user;
     BookmarkController.databaseReference.child('bookmark/'+user+'/bookMarkList/').once().then(
             (DataSnapshot data){
           setState((){
-            //bookmarkList=[];
-            updatedList = data.value;
+            checkList=[];
+            pulledList = data.value;
+            int j;
+            try{
+              j = pulledList.length;
+            }
+            catch(e){
+              j=0;
+            }
+            for(var i=0;i< j;i++){
+              if(!checkList.contains(pulledList[i]))
+              {checkList.add(pulledList[i]);}
+            }
           });
         }
     );
   }
-
-  @override
-  void initState(){
-    build(context);
-    super.initState();
-  }*/
   @override
   Widget build(BuildContext context) {
-
     var BookmarkList =  widget.update(widget.bookmarkList);
-
-
-
-          return Container(
+    var BookMarkItem = model.BookMarkInfoModel(checkList, BookmarkController.user);
+    fetchBookmarkData();
+    return Container(
             child: FutureBuilder<List<locations.HDBListing>>(
               future: BookmarkList,
               builder: (context, snapshot){
@@ -1436,7 +1438,20 @@ class BookmarkPageView extends State<controller.BookmarkPageController>{
                         onTap: () { Navigator.pushNamed(context, '/third', arguments: user) ;},
                         title: Text(user.address + ", ID: " + user.ID.toString()),
                         subtitle: Text(user.resale_price.toString()),
-
+                        trailing: IconButton(
+                          icon: Icon(
+                            Icons.close
+                          ),
+                          onPressed: () {
+                            setState(() {
+                                checkList.remove(user.ID);
+                            });
+                            BookMarkItem.bookMarkedList=checkList;
+                            BookmarkController.saveBookmark(BookMarkItem);
+                            Navigator.pushNamedAndRemoveUntil(context, '/first',(_) => false
+                            );
+                          },
+                        ),
                       )
                       );
                     },
