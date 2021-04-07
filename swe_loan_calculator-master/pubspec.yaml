@@ -63,12 +63,14 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/HDB Image.png
-    - assets/images/search.png
+    - assets/images/Search.png
     - assets/images/calculator.png
     - assets/MallCoordinates.json
     - assets/HDBListings.json
     - assets/helpPage.txt
-    - assets/images/List.png
+    - assets/images/house.png
+    - assets/images/CalculatorMain.png
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -39,22 +39,23 @@ class LoanVisualView extends StatelessWidget{
         },
         child: Scaffold(
             appBar: AppBar(
-              title: Text("Loan Visualisation Page"),actions: <Widget>[
-              IconButton(
-                icon: const Icon(Icons.home),
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => mainpage.HomePageStateful()));
-                },
-              ),
+              title: Text("Loan Visualisation Page"),
+              actions: <Widget>[
+                IconButton(
+                  icon: const Icon(Icons.home),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => mainpage.HomePageStateful()));
+                  },
+                ),
 
-              IconButton(
-                icon: const Icon(Icons.ios_share),
-                onPressed: () {
-                  _takeScreenshotandShare();
-                },),],
+                IconButton(
+                  icon: const Icon(Icons.ios_share),
+                  onPressed: () {
+                    _takeScreenshotandShare();
+                  },),],
             ),
             body: Screenshot(
                 controller: screenshotController,
