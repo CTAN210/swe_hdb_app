@@ -29,22 +29,8 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36e3cabf-a4c7-4422-8c6c-d3b9aa815eda" name="Default Changelist" comment="Split MVC + clean some codes">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
+    <list default="true" id="36e3cabf-a4c7-4422-8c6c-d3b9aa815eda" name="Default Changelist" comment="07 Apr code cleaning">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/assets/images/calculator.png" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/assets/images/calculator.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/lib/controller/FilterController.dart" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/lib/controller/FilterController.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/lib/controller/FilterSliderController.dart" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/lib/controller/FilterSliderController.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/lib/controller/FullDetailsController.dart" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/lib/controller/FullDetailsController.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/lib/view/BookMarkPageView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/lib/view/BookMarkPageView.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/lib/view/FilterSliderView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/lib/view/FilterSliderView.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/lib/view/FilterView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/lib/view/FilterView.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/lib/view/FullDetailsView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/lib/view/FullDetailsView.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/lib/view/ListPageView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/lib/view/ListPageView.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/lib/view/LoanCalSliderView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/lib/view/LoanCalSliderView.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/lib/view/MapPageView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/lib/view/MapPageView.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +148,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617726700773</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="07 Apr code cleaning">
+      <created>1617810783923</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1617810783923</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -223,7 +216,8 @@
     <MESSAGE value="MODEL-VIEW-CONTROLLER dart files" />
     <MESSAGE value="Updated documentation + Main page visuals" />
     <MESSAGE value="Split MVC + clean some codes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Split MVC + clean some codes" />
+    <MESSAGE value="07 Apr code cleaning" />
+    <option name="LAST_COMMIT_MESSAGE" value="07 Apr code cleaning" />
   </component>
   <component name="WindowStateProjectService">
     <state x="607" y="195" key="#Plugins" timestamp="1616641977533">
@@ -265,34 +259,34 @@
     <state x="4580" y="49" key="FileChooserDialogImpl/0.0.1536.824/3840.0.1920.1040@3840.0.1920.1040" timestamp="1616321413969" />
     <state x="4826" y="49" key="FileChooserDialogImpl/0.0.1536.824/3840.0.2560.1040@3840.0.2560.1040" timestamp="1616252421325" />
     <state x="740" y="275" key="FileChooserDialogImpl/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617774306628" />
-    <state width="1877" height="275" key="GridCell.Tab.0.bottom" timestamp="1617806395741">
+    <state width="918" height="275" key="GridCell.Tab.0.bottom" timestamp="1617810742573">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1236" height="128" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1616234992642" />
     <state width="1049" height="306" key="GridCell.Tab.0.bottom/0.0.1536.824/3840.0.1920.1040@3840.0.1920.1040" timestamp="1616321427405" />
     <state width="1170" height="276" key="GridCell.Tab.0.bottom/0.0.1536.824/3840.0.2560.1040@3840.0.2560.1040" timestamp="1616252248134" />
-    <state width="1877" height="275" key="GridCell.Tab.0.bottom/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617806395741" />
-    <state width="1877" height="275" key="GridCell.Tab.0.center" timestamp="1617806395741">
+    <state width="918" height="275" key="GridCell.Tab.0.bottom/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617810742572" />
+    <state width="918" height="275" key="GridCell.Tab.0.center" timestamp="1617810742572">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1236" height="128" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1616234992642" />
     <state width="1049" height="306" key="GridCell.Tab.0.center/0.0.1536.824/3840.0.1920.1040@3840.0.1920.1040" timestamp="1616321427405" />
     <state width="1170" height="276" key="GridCell.Tab.0.center/0.0.1536.824/3840.0.2560.1040@3840.0.2560.1040" timestamp="1616252248134" />
-    <state width="1877" height="275" key="GridCell.Tab.0.center/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617806395741" />
-    <state width="1877" height="275" key="GridCell.Tab.0.left" timestamp="1617806395741">
+    <state width="918" height="275" key="GridCell.Tab.0.center/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617810742572" />
+    <state width="918" height="275" key="GridCell.Tab.0.left" timestamp="1617810742572">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1236" height="128" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1616234992641" />
     <state width="1049" height="306" key="GridCell.Tab.0.left/0.0.1536.824/3840.0.1920.1040@3840.0.1920.1040" timestamp="1616321427405" />
     <state width="1170" height="276" key="GridCell.Tab.0.left/0.0.1536.824/3840.0.2560.1040@3840.0.2560.1040" timestamp="1616252248134" />
-    <state width="1877" height="275" key="GridCell.Tab.0.left/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617806395741" />
-    <state width="1877" height="275" key="GridCell.Tab.0.right" timestamp="1617806395741">
+    <state width="918" height="275" key="GridCell.Tab.0.left/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617810742572" />
+    <state width="918" height="275" key="GridCell.Tab.0.right" timestamp="1617810742572">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1236" height="128" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1616234992642" />
     <state width="1049" height="306" key="GridCell.Tab.0.right/0.0.1536.824/3840.0.1920.1040@3840.0.1920.1040" timestamp="1616321427405" />
     <state width="1170" height="276" key="GridCell.Tab.0.right/0.0.1536.824/3840.0.2560.1040@3840.0.2560.1040" timestamp="1616252248134" />
-    <state width="1877" height="275" key="GridCell.Tab.0.right/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617806395741" />
+    <state width="918" height="275" key="GridCell.Tab.0.right/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617810742572" />
     <state x="184" y="86" key="MergeDialog" timestamp="1617719289021">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -313,10 +307,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="127" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617801312428" />
-    <state x="769" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1617719790971">
+    <state x="769" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1617810759203">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="769" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617719790971" />
+    <state x="769" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617810759203" />
     <state x="177" y="0" width="1558" height="715" key="dock-window-1" timestamp="1617800679484">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
