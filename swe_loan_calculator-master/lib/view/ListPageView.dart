@@ -2,13 +2,15 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:swe_loan_calculator/src/HDBListings.dart' as locations;
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:swe_loan_calculator/controller/FilterController.dart' as listpagecontroller;
+import 'package:swe_loan_calculator/controller/FilterController.dart' as filtercontroller;
 import 'package:swe_loan_calculator/controller/BookMarkController.dart' as bookmarkcontroller;
 import 'package:swe_loan_calculator/model/BookMarkInfoModel.dart' as bookmarkinfomodel;
 import 'package:swe_loan_calculator/controller/LoanCalController.dart' as loancalcontroller;
+import 'package:swe_loan_calculator/view/FilterSliderView.dart' as filtersliderview;
+import 'package:swe_loan_calculator/controller/FullDetailsController.dart' as fulldetailscontroller;
 
 /// Class to organise the display of Filtered HDB Listings on a List View
-class ListPageView extends State<listpagecontroller.FilterController> {
+class ListPageView extends State<filtercontroller.FilterController> {
   /// List of Bookmarked HDB Listings
   final List bookmarkList = [];
   var checkList=[];
@@ -16,6 +18,19 @@ class ListPageView extends State<listpagecontroller.FilterController> {
   var BookmarkController = bookmarkcontroller.BookMarkController();
   /// List of Filtered HDB
   Future<List<locations.HDBListing>> filtered_hdb;
+  /// ViewAllListings value passed from FilterController class
+  int ViewAllListings;
+
+  /// Instance of the FilterController Class
+  filtercontroller.FilterController FilterControllerInstance = filtercontroller.FilterController();
+/// Instance of the FilterSliderView Class
+  filtersliderview.FilterSliderView FilterSliderViewInstance = filtersliderview.FilterSliderView();
+
+
+  ListPageView({
+    this.ViewAllListings
+  });
+
   void fetchBookmarkData(){
     var user = BookmarkController.user;
     BookmarkController.databaseReference.child('bookmark/'+user+'/bookMarkList/').once().then(
@@ -44,47 +59,27 @@ class ListPageView extends State<listpagecontroller.FilterController> {
     super.initState();
   }
 
-  /// Function to set markers on Google Map
-  Future<List<locations.HDBListing>> _HDBFilterFunction() async {
-    final HDBData = await locations.getHDBListing();
-    final List<locations.HDBListing> finalList = [];
-    //print(HDBData);
-    var LocationDictionary = { 1:'ANG MO KIO' , 2:'BEDOK', 3:'BISHAN', 4:'BUKIT BATOK', 5: 'BUKIT MERAH', 6: 'BUKIT PANJANG',
-      7: 'BUKIT TIMAH', 8: 'CENTRAL AREA', 9: 'CHOA CHU KANG', 10: 'CLEMENTI', 11: 'GEYLANG',
-      12: 'HOUGANG', 13: 'JURONG EAST', 14: 'JURONG WEST', 15: 'KALLANG/WHAMPOA', 16: 'MARINE PARADE', 17: 'PASIR RIS',
-      18: 'PUNGGOL', 19: 'QUEENSTOWN', 20: 'SEMBAWANG', 21: 'SENGKANG', 22: 'SERANGOON', 23: 'TAMPINES',
-      24: 'TOA PAYOH', 25: 'WOODLANDS', 26: 'YISHUN'};
-    var FlatTypeDictionary = { 1 : '1 ROOM', 2: '2 ROOM', 3: '3 ROOM', 4: '4 ROOM', 5: '5 ROOM',
-      6: 'EXECUTIVE', 7: 'MULTI-GENERATION'};
-    for (final listing in HDBData.items) {
-      if (widget.lowerPV != 200000 ||
-          widget.upperPV != 200000 ||
-          widget.lowerFlArea != 31 ||
-          widget.upperFlArea != 31 ||
-          widget.FlatTypeValue != 1 ||
-          widget.LocationValue != 1) {
-        //print (LocationDictionary[widget.LocationValue]);
-        // FIGURE OUT REMAINING_LEASE (FROM STRING TO INT)
-        if (widget.lowerPV < listing.resale_price &&
-            listing.resale_price < widget.upperPV &&
-            widget.lowerFlArea < listing.floor_area_sqm &&
-            listing.floor_area_sqm < widget.upperFlArea &&
-            listing.town == LocationDictionary[widget.LocationValue] &&
-            listing.flat_type == FlatTypeDictionary[widget.FlatTypeValue]) {
-          finalList.add(listing);
 
-        }
-      }
-    }
-    return finalList;
-  }
+
+
+
 
   /// Function to organise display of entire List View Page
   @override
   Widget build(BuildContext context)  {
     var count =0;
-    filtered_hdb = _HDBFilterFunction();
-    //checkList=widget.pulledList;
+
+    FilterControllerInstance.PV = FilterSliderViewInstance.getPVRangeValues();
+
+    FilterControllerInstance.FlArea = FilterSliderViewInstance.getFlAreaRangeValues();
+
+    FilterControllerInstance.RemainLease = FilterSliderViewInstance.getRemainLeaseRangeValues();
+
+    FilterControllerInstance.FlatTypeValue = FilterSliderViewInstance.getFlatTypeValue();
+
+    FilterControllerInstance.LocationValue = FilterSliderViewInstance.getLocationValue();
+
+    filtered_hdb = FilterControllerInstance.HDBFilterFunction(FilterControllerInstance.PV, FilterControllerInstance.FlArea, FilterControllerInstance.RemainLease,FilterControllerInstance.FlatTypeValue,FilterControllerInstance.LocationValue, ViewAllListings);
 
     var BookMarkItem = bookmarkinfomodel.BookMarkInfoModel(bookmarkList, widget.user);
 
@@ -97,7 +92,14 @@ class ListPageView extends State<listpagecontroller.FilterController> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('HDB Lists (Filtered)'),
+        title: Text('Filtered HDB Listings '),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pushNamedAndRemoveUntil(context, '/second',(_) => false
+            );
+          },
+        ),
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.home),
@@ -114,10 +116,9 @@ class ListPageView extends State<listpagecontroller.FilterController> {
             //builder: (context, AsyncSnapshot<List<dynamic>> snapshot) {
               future: filtered_hdb,
               builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  print('Not Empty Set');
+                if (snapshot.data.isNotEmpty) {
+                  print('========Number of listings displayed======== ' + '\n' + snapshot.data.length.toString());
                   List<locations.HDBListing> filtered_hdb1 = snapshot.data;
-
 
                   return ListView.builder(
                       padding: EdgeInsets.all(8),
@@ -126,16 +127,16 @@ class ListPageView extends State<listpagecontroller.FilterController> {
                         var isBookmarked =
                         //BookMarkItem.bookMarkedList.contains(filtered_hdb1[index]);
                         checkList.contains(filtered_hdb1[index].ID);
-                        return Card(
+                        return Container(
+                          decoration: new BoxDecoration(border: new Border.all(color: Colors.grey[500], width: 2.0), borderRadius: BorderRadius.circular(10.0),),
                           child: ListTile(
+                            contentPadding: EdgeInsets.all(10),
                             onTap: () {
-                              Navigator.pushNamed(context, '/third',
-                                  arguments: filtered_hdb1[index]);
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => fulldetailscontroller.FullDetailsController(hdb: filtered_hdb1[index])));
                             },
-                            title: Text('price: ' + '\$' +
+                            title: Text('\$' +
                                 filtered_hdb1[index].resale_price.toString() +
                                 '\n' +
-                                'Address: ' +
                                 filtered_hdb1[index].address +
                                 '\n' +
                                 'Floor Area: ' +
@@ -186,9 +187,12 @@ class ListPageView extends State<listpagecontroller.FilterController> {
                           ),
                         );
                       });
-                } else {
-                  print('Empty Set');
-                  return Card(child: Text ('EMPTY'));
+                }
+                else {
+                  print('Empty list! Displaying error message to User');
+                  return Center(
+                    child: Text('No Listings Found!', style: TextStyle(color: Colors.black, fontSize: 25))
+                  );
                 }
               })
       ),
@@ -201,8 +205,7 @@ class ListPageView extends State<listpagecontroller.FilterController> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.pushNamed(context, '/fourth',
-              //arguments: );
-              arguments: _HDBFilterFunction());
+              arguments: FilterControllerInstance.HDBFilterFunction(FilterControllerInstance.PV, FilterControllerInstance.FlArea,FilterControllerInstance.RemainLease,FilterControllerInstance.FlatTypeValue,FilterControllerInstance.LocationValue, ViewAllListings));
         },
         child: const Icon(Icons.map),
       ),

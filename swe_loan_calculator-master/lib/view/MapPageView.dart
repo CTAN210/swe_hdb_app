@@ -4,6 +4,12 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:swe_loan_calculator/src/HDBListings.dart' as HDBListings;
 import 'package:swe_loan_calculator/controller/MapPageController.dart' as mappagecontroller;
 import 'package:swe_loan_calculator/model/MapModel.dart' as mapmodel;
+import 'package:swe_loan_calculator/controller/FilterController.dart' as filtercontroller;
+import 'package:swe_loan_calculator/view/FilterView.dart' as filterview;
+import 'package:swe_loan_calculator/main.dart';
+
+
+
 
 /// Class to organise the display of Filtered HDB Listings on a GoogleMap
 class MapPageView extends State<mappagecontroller.MapPageController> {
@@ -17,8 +23,6 @@ class MapPageView extends State<mappagecontroller.MapPageController> {
   Future<void> _onMapCreated(GoogleMapController controller) async {
 
     filtered_hdb = await ModalRoute.of(context).settings.arguments;
-    //print('FILTERED HDB MAP VIEW WORKING');
-    //print(filtered_hdb[3].longitude);
     // final googleOffices = await locations.getHDBListing();
     setState(() {
       _markers.clear();
@@ -41,10 +45,27 @@ class MapPageView extends State<mappagecontroller.MapPageController> {
   @override
   Widget build(BuildContext context) {
 
+    filterview.FilterView FilterViewInstance = filterview.FilterView();
 
-    return MaterialApp(home:Scaffold(
+
+    return MaterialApp(
+      home:Scaffold(
       appBar: AppBar(
         title: Text('Map View'),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            setState(() {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => filtercontroller.FilterController(ViewAllListings: MyApp.getCount())
+                    )
+                );
+              },
+            );
+          },
+        ),
         backgroundColor: Colors.blue[700],
       ),
       body: GestureDetector(

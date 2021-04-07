@@ -5,10 +5,17 @@ import 'package:swe_loan_calculator/src/HDBListings.dart' as HDBListings;
 import 'package:swe_loan_calculator/src/shoppingmalls.dart' as ShoppingMalls;
 import 'package:swe_loan_calculator/controller/FullDetailsController.dart' as fulldetailscontroller;
 import 'package:swe_loan_calculator/model/MapModel.dart' as mapmodel;
+import 'package:swe_loan_calculator/view/FilterView.dart' as filterview;
+import 'package:swe_loan_calculator/controller/LoanCalController.dart' as loancalcontroller;
+
+
+
 
 
 /// Class to organise the display of Full Details of a HDB Listing
 class FullDetailsView extends State<fulldetailscontroller.FullDetailsController> {
+
+
   /// Marker to display exact location of a HDB Listing on the Proximity Map
   final Marker HDBMarker = Marker();
   /// Specific HDB Listing to be displayed
@@ -38,77 +45,165 @@ class FullDetailsView extends State<fulldetailscontroller.FullDetailsController>
   @override
   Widget build(BuildContext context) {
 
-    hdb = ModalRoute.of(context).settings.arguments;
-    print(hdb.latitude.toString() + ',' + hdb.longitude.toString());
+    filterview.FilterView FilterViewInstance = filterview.FilterView();
 
 
-    return MaterialApp(
-      home:Scaffold(
+    hdb = widget.hdb;
+    print('========Selected HDB Details======== ' + '\n' +
+        'Resale Price: ' + '\$' + hdb.resale_price.toString() + '\n' +
+        'Address: ' + hdb.address + '\n' +
+        'Remaining Lease: ' + hdb.remaining_lease.toString() + '\n' +
+        'Floor Area: ' + hdb.floor_area_sqm.toString() + '\n' +
+        'Flat Type: ' + hdb.flat_type);
+
+
+    return Scaffold(
         appBar: AppBar(
           title: Text('Property View'),
-          backgroundColor: Colors.green[700],
+          backgroundColor: Colors.blue[700],
         ),
         body: GestureDetector(
           child: _detailsBody(hdb),
         ),
-      ),
-    );
+      );
   }
 
   /// Function to organise the display of details extracted from specific HDB Listing
   Widget _detailsBody(hdb) {
-    return ListView(
-      padding: const EdgeInsets.fromLTRB(24.0, 12.0, 24.0, 12.0),
-      children: [Text('Resale price: ' + hdb.resale_price.toString(),
-        style: TextStyle(fontWeight: FontWeight.w900, fontSize: 25, color: Colors.black87),
-        textAlign: TextAlign.left,
-      ),
-        Text('Address: ' + hdb.address,
-          style: TextStyle(fontWeight: FontWeight.w900, fontSize: 20, color: Colors.black87),
-          textAlign: TextAlign.left,
-        ),
-        Text('Type: ' + hdb.flat_type,
-          style: TextStyle(fontWeight: FontWeight.w900, fontSize: 17, color: Colors.black45),
-          textAlign: TextAlign.left,
-        ),
-        Text('Area: ' + hdb.town,
-          style: TextStyle(fontWeight: FontWeight.w900, fontSize: 17, color: Colors.black45),
-          textAlign: TextAlign.left,
-        ),
-        Text('Property Details',
-          style: TextStyle(fontWeight: FontWeight.w900, fontSize: 17, color: Colors.black87),
-          textAlign: TextAlign.left,
-        ),
 
-        RichText(
-          text: TextSpan(
-            text: 'Size: ',
-            style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15, color: Colors.black87),
-            children: <TextSpan>[
-              TextSpan(text: '${hdb.floor_area_sqm} sqm', style: TextStyle(fontWeight: FontWeight.w300, fontSize: 15, color: Colors.black54))
-            ],
-          ),
-          textAlign : TextAlign.center,
-        ),
-        RichText(
-          text: TextSpan(
-            text: 'Remaining Lease: ',
-            style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15, color: Colors.black87),
-            children: <TextSpan>[
-              TextSpan(text: '${hdb.remaining_lease}', style: TextStyle(fontWeight: FontWeight.w300, fontSize: 15, color: Colors.black54))
-            ],
-          ),
-          textAlign : TextAlign.center,
-        ),
+    return
+      Container(
+        decoration: BoxDecoration(border: Border.all()),
+        padding: EdgeInsets.all(15),
+        child:
+        Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Container(
+                alignment: Alignment.topLeft,
+                margin: const EdgeInsets.all(5.0),
+                decoration: BoxDecoration(
+                  color: Colors.tealAccent,
+                  border: null,
+                ),
+                padding: EdgeInsets.all(5),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    ListTile(
+                      title: Text('Resale Price: ' + '\$' +
+                          hdb.resale_price.toString() +
+                          '\n' +
+                          hdb.address,
+                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.black),
+                          textAlign: TextAlign.left),
+                      trailing: Wrap(
+                        spacing:0,
+                        children: <Widget>[SizedBox(
+                          height: 100,
+                          width: 100,
+                          child:
+                          IconButton(
+                              icon: Image.asset('assets/images/calculator.png'),
+                              iconSize: 500,
+                              alignment: Alignment.topRight,
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => loancalcontroller.LoanCalController(presetPrincipal: hdb.resale_price,),
+                                  ),
 
-        mapmodel.MapModel(
-          center: LatLng(hdb.latitude, hdb.longitude),
-          mapController: controller,
-          onMapCreated: _onMapCreated,
-          markers: _markers,
+                                );
+                              }
+                          ),
+                        ),
+                        ],
+                      ),
+
+                    ),
+                  ],
+                )),
+            Container(
+              alignment: Alignment.topLeft,
+              margin: const EdgeInsets.all(5.0),
+              decoration: BoxDecoration(
+                color: Colors.green,
+                border: null,
+              ),
+              padding: EdgeInsets.all(20),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text('Type: ' + hdb.flat_type,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.black87),
+                    textAlign: TextAlign.center,
+                  ),
+                  Text('Area: ' + hdb.town,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.black87),
+                    textAlign: TextAlign.center,
+                  ),],),),
+            Container(
+              alignment: Alignment.topLeft,
+              margin: const EdgeInsets.all(5.0),
+              decoration: BoxDecoration(
+                color: Colors.lightGreenAccent,
+                border: null,
+              ),
+              padding: EdgeInsets.all(20),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text('Property Details:',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22, color: Colors.black87),
+                    textAlign: TextAlign.left,
+                  ),
+
+                  RichText(
+                    text: TextSpan(
+                      text: 'Size: ',
+                      style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18, color: Colors.black87),
+                      children: <TextSpan>[
+                        TextSpan(text: '${hdb.floor_area_sqm} sqm', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 18, color: Colors.black54))
+                      ],
+                    ),
+                    textAlign : TextAlign.center,
+                  ),
+                  RichText(
+                    text: TextSpan(
+                      text: 'Remaining Lease: ',
+                      style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18, color: Colors.black87),
+                      children: <TextSpan>[
+                        TextSpan(text: '${hdb.remaining_lease}', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 18, color: Colors.black54))
+                      ],
+                    ),
+                    textAlign : TextAlign.center,
+                  ),
+                ],),),
+            Card(
+              margin: const EdgeInsets.symmetric(vertical: 16.0),
+              elevation: 4,
+              child: SizedBox(
+                width: 340,
+                height: 240,
+                child:
+                mapmodel.MapModel(
+                  center: LatLng(hdb.latitude, hdb.longitude),
+                  mapController: controller,
+                  onMapCreated: _onMapCreated,
+                  markers: _markers,
+                ),
+              ),
+            ),
+          ],
         ),
-      ],
-    );
+      );
+
+
   }
 
 

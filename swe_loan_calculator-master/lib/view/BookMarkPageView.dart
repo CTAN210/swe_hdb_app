@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:swe_loan_calculator/controller/BookMarkController.dart' as bookmarkcontroller;
 import 'package:swe_loan_calculator/controller/BookMarkPageController.dart' as bookmarkpagecontroller;
 import 'package:swe_loan_calculator/model/BookMarkInfoModel.dart' as bookmarkinfomodel;
+import 'package:swe_loan_calculator/controller/FullDetailsController.dart' as fulldetailscontroller;
 
 class BookmarkPageView extends State<bookmarkpagecontroller.BookmarkPageController>{
 
@@ -60,20 +61,22 @@ class BookmarkPageView extends State<bookmarkpagecontroller.BookmarkPageControll
                   itemCount: max,
                   itemBuilder: (context, index) {
 
-                    final user = BookmarkList1[index];
+                    final listing = BookmarkList1[index];
 
                     return Card(
                         child:ListTile(
-                          onTap: () { Navigator.pushNamed(context, '/third', arguments: user) ;},
-                          title: Text(user.address , style: TextStyle(fontWeight: FontWeight.w900)),
-                          subtitle: Text('Resale Price : ' + '\$' + user.resale_price.toString(), style: TextStyle(fontWeight: FontWeight.w900)),
+                          onTap:(){
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => fulldetailscontroller.FullDetailsController(hdb: listing)));
+                          },
+                          title: Text(listing.address , style: TextStyle(fontWeight: FontWeight.w900)),
+                          subtitle: Text('Resale Price : ' + '\$' + listing.resale_price.toString(), style: TextStyle(fontWeight: FontWeight.w900)),
                           trailing: IconButton(
                             icon: Icon(
                                 Icons.close
                             ),
                             onPressed: () {
                               setState(() {
-                                checkList.remove(user.ID);
+                                checkList.remove(listing.ID);
                               });
                               BookMarkItem.bookMarkedList=checkList;
                               BookmarkController.saveBookmark(BookMarkItem);

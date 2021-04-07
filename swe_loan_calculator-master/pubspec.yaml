@@ -68,6 +68,7 @@ flutter:
     - assets/MallCoordinates.json
     - assets/HDBListings.json
     - assets/helpPage.txt
+    - assets/images/List.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

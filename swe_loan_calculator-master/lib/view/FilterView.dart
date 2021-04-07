@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:swe_loan_calculator/controller/FilterPageController.dart' as filtercontroller;
+import 'package:swe_loan_calculator/controller/FilterPageController.dart' as filterpagecontroller;
 import 'package:swe_loan_calculator/controller/FilterSliderController.dart' as filterslidercontroller;
+import 'package:swe_loan_calculator/controller/FilterController.dart' as filtercontroller;
+import 'package:swe_loan_calculator/main.dart';
 
 ///Boundary class that contains the structure of the Filter page
-class FilterView extends State<filtercontroller.FIlterPageController> {
+class FilterView extends State<filterpagecontroller.FIlterPageController> {
   var pulledList;
   List<bool> _isSelected = [false,false,false,false,false];
+
 
 
   @override
@@ -29,6 +32,19 @@ class FilterView extends State<filtercontroller.FIlterPageController> {
                   );
                 },
               ),
+              actions: <Widget>[
+                IconButton(
+                  icon: Image.asset('assets/images/List.png'),
+                  onPressed:() async{
+                    MyApp.setCount(1);
+                    await Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => filtercontroller.FilterController(ViewAllListings: MyApp.getCount())
+                        )
+                    );
+                  }),
+              ],
             ),
             body: ListView(
               padding: const EdgeInsets.all(8),
@@ -37,17 +53,19 @@ class FilterView extends State<filtercontroller.FIlterPageController> {
                   height: 80,
                   child:ToggleButtons(
                     children: <Widget>[
-                      Text(' Flat' '\n' 'Type', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900 )),
-                      Text(' Location ', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900)),
-                      Text(' Property ' '\n' '   Value', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900)),
-                      Text('Floor' '\n' 'Area', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900)),
-                      Text('Remaining' '\n' '   Lease', style: TextStyle(fontSize:20, fontWeight: FontWeight.w900)),
+                      Text(' Flat' '\n' 'Type', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w900 )),
+                      Text(' Location ', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w900)),
+                      Text(' Property ' '\n' '   Value', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w900)),
+                      Text(' Floor ' '\n' ' Area ', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w900)),
+                      Text(' Remaining ' '\n' '   Lease', style: TextStyle(fontSize:18, fontWeight: FontWeight.w900)),
                     ],
                     isSelected: _isSelected,
                     borderColor: Colors.black,
-                    selectedBorderColor: Colors.blue,
+                    selectedBorderColor: Colors.black,
+                    selectedColor: Colors.black,
+                    fillColor: Colors.blue,
                     borderRadius: BorderRadius.all(Radius.circular(15)),
-                    borderWidth: 1.0,
+                    borderWidth: 3.0,
 
                     onPressed: (int index){
                       setState((){
@@ -56,19 +74,19 @@ class FilterView extends State<filtercontroller.FIlterPageController> {
                       if (_isSelected[index] == true) {
                         // ignore: curly_braces_in_flow_control_structures
                         if (index == 0) {
-                          print('Flat Type is clicked');
+                          print('========Flat Type is selected========');
                         }
-                        if (index == 1) {
-                          print('Location is clicked');
+                        else if (index == 1) {
+                          print('========Location is selected========');
                         }
-                        if (index == 2) {
-                          print('Property Value is clicked');
+                        else if (index == 2) {
+                          print('========Property Value is selected========');
                         }
-                        if (index == 3) {
-                          print('Floor Area is clicked');
+                        else if (index == 3) {
+                          print('========Floor Area is selected========');
                         }
-                        if (index == 4) {
-                          print('Remaining Lease is clicked');
+                        else if (index == 4) {
+                          print('========Remaining Lease is selected========');
                         }
                       };
                     },
@@ -78,7 +96,7 @@ class FilterView extends State<filtercontroller.FIlterPageController> {
                     padding: EdgeInsets.all(8),
                     child: Column(
                       children: <Widget>[
-                        filterslidercontroller.FilterSliderController(),
+                        filterslidercontroller.FilterSliderController(SelectedList: _isSelected),
                       ],
                     )
                 )
