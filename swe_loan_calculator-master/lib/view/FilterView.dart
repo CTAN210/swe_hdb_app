@@ -34,7 +34,7 @@ class FilterView extends State<filterpagecontroller.FIlterPageController> {
               ),
               actions: <Widget>[
                 IconButton(
-                  icon: Image.asset('assets/images/List.png'),
+                  icon: Icon(Icons.list),
                   onPressed:() async{
                     MyApp.setCount(1);
                     await Navigator.push(

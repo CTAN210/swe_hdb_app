@@ -68,11 +68,11 @@ class LoanCalSliderView
                       style:
                           TextStyle(fontWeight: FontWeight.w900, fontSize: 20)),
                   Container(
-                    padding: EdgeInsets.all(15),
+                    padding: EdgeInsets.all(10),
                     child: TextField(
                       keyboardType: TextInputType.number,
                       controller: myController,
-                      maxLength: 9,
+                      maxLength: 8,
                       decoration: InputDecoration(
                         focusedBorder: OutlineInputBorder(
                           borderSide:
@@ -188,7 +188,7 @@ class LoanCalSliderView
                     },
                   ),
                 ])),
-        SizedBox(height: 10),
+        SizedBox(height: 8),
         Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[

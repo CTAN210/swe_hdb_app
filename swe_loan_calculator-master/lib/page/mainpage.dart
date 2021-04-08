@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:swe_loan_calculator/provider/google_sign_in.dart';
@@ -44,42 +43,29 @@ class MyHomePage extends State<HomePageStateful> {
         appBar: AppBar(
           title: Text("HDB App"),
           actions: [
+            ///button for help page
+            IconButton(
+              icon: Icon(Icons.info,color: Colors.black,),
+              iconSize: 30,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => helppagecontroller.HelpPageController(),
+                  ),
+                );
+              },
+            ),
             /// Button to logout
-            FlatButton(
+            IconButton(
+              icon: Icon(Icons.logout,color: Colors.black,),
+              iconSize: 30,
               onPressed: () {
                 final provider =
-                    Provider.of<GoogleSignInProvider>(context, listen: false);
+                Provider.of<GoogleSignInProvider>(context, listen: false);
                 provider.logout();
               },
-              child: Container(
-                  alignment: Alignment.center,
-                  child: Text('Logout',
-                      style: TextStyle(
-                          fontWeight: FontWeight.w900,
-                          fontSize: 20,
-                          color: Colors.white))),
             ),
-            OutlineButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => helppagecontroller.HelpPageController(),
-                    ),
-                  );
-                },
-                child: Stack(
-                  children: <Widget>[
-                    Align(
-                        alignment: Alignment.centerRight,
-                        child: Icon(Icons.info)),
-                  ],
-                ),
-                highlightedBorderColor: Colors.white,
-                color: Colors.white,
-                borderSide: new BorderSide(color: Colors.white),
-                shape: new RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(5.0))),
           ],
         ),
         body: Center(
@@ -89,7 +75,7 @@ class MyHomePage extends State<HomePageStateful> {
               Column(children: <Widget>[
                 /// Button to search/filter for listings
                 IconButton(
-                  icon: Image.asset('assets/images/search.png'),
+                  icon: Image.asset('assets/images/Search.png'),
                   iconSize: 150,
                   onPressed: () {
                     Navigator.pushNamedAndRemoveUntil(context, '/second',(_) => false
@@ -99,7 +85,7 @@ class MyHomePage extends State<HomePageStateful> {
 
                 /// Button to go to loan calculator
                 IconButton(
-                  icon: Image.asset('assets/images/calculator.png'),
+                  icon: Image.asset('assets/images/CalculatorMain.png'),
                   iconSize: 150,
                   onPressed: () {
                     Navigator.push(
@@ -115,12 +101,36 @@ class MyHomePage extends State<HomePageStateful> {
 
             ],
           ),
-          Text("Bookmark List",style: TextStyle(
-            fontWeight: FontWeight.w900,
-            fontSize: 20,)),
+          SizedBox(height:5),
+          RichText(
+            text: TextSpan(
+              style: TextStyle(
+              fontWeight: FontWeight.w900,
+              fontSize: 20,
+              color: Colors.black),
+              children: [
+                WidgetSpan(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 2.0),
+                    child: Icon(Icons.bookmark),
+                  ),
+                ),
+                TextSpan(text: '   Bookmarked Listings '),
+              ],
+            ),
+          ),
+          SizedBox(height:10),
           Container(
-            height: 300.0,
+            height: 275,
             width: 350,
+            padding: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: CupertinoColors.systemGrey5
+              ),
+              color: CupertinoColors.systemGrey5
+
+            ),
             child: Column(children: <Widget>[
                 bookmarkpagecontroller.BookmarkPageController(bookmarkList),
             ]),

@@ -21,6 +21,8 @@ class FilterController extends StatefulWidget {
   RangeValues RemainLease;
   /// Value for determining if the 'View All Listings' button is pressed or not.
   int ViewAllListings;
+  /// Boolean list for allowing us to identify which filter functions has been selected.
+  List<bool> SelectedList;
   /// Username
   final String user = FirebaseAuth.instance.currentUser.displayName;
   var pulledList;
@@ -38,6 +40,7 @@ class FilterController extends StatefulWidget {
         this.FlArea,
         this.RemainLease,
         this.ViewAllListings,
+        this.SelectedList,
         //this.checkList
       })
       : super(key: key);
@@ -46,46 +49,59 @@ class FilterController extends StatefulWidget {
 
 
   /// Function to filter HDB Listings
-  Future<List<locations.HDBListing>> HDBFilterFunction(RangeValues PV, RangeValues FlArea, RangeValues RemainLease, int FlatTypeValue, int LocationValue, int ViewAllListings) async {
+  Future<List<locations.HDBListing>> HDBFilterFunction(RangeValues PV, RangeValues FlArea, RangeValues RemainLease, int FlatTypeValue, int LocationValue, int ViewAllListings, List<bool> SelectedList) async {
     final HDBData = await locations.getHDBListing();
     final List<locations.HDBListing> finalList = [];
-    var LocationDictionary = { 1:'ANG MO KIO' , 2:'BEDOK', 3:'BISHAN', 4:'BUKIT BATOK', 5: 'BUKIT MERAH', 6: 'BUKIT PANJANG',
+    var LocationDictionary = {0:'ALL', 1:'ANG MO KIO' , 2:'BEDOK', 3:'BISHAN', 4:'BUKIT BATOK', 5: 'BUKIT MERAH', 6: 'BUKIT PANJANG',
       7: 'BUKIT TIMAH', 8: 'CENTRAL AREA', 9: 'CHOA CHU KANG', 10: 'CLEMENTI', 11: 'GEYLANG',
       12: 'HOUGANG', 13: 'JURONG EAST', 14: 'JURONG WEST', 15: 'KALLANG/WHAMPOA', 16: 'MARINE PARADE', 17: 'PASIR RIS',
       18: 'PUNGGOL', 19: 'QUEENSTOWN', 20: 'SEMBAWANG', 21: 'SENGKANG', 22: 'SERANGOON', 23: 'TAMPINES',
       24: 'TOA PAYOH', 25: 'WOODLANDS', 26: 'YISHUN'};
-    var FlatTypeDictionary = { 1 : '1 ROOM', 2: '2 ROOM', 3: '3 ROOM', 4: '4 ROOM', 5: '5 ROOM',
+    var FlatTypeDictionary = {0:'ALL', 1: '1 ROOM', 2: '2 ROOM', 3: '3 ROOM', 4: '4 ROOM', 5: '5 ROOM',
       6: 'EXECUTIVE', 7: 'MULTI-GENERATION'};
 
-
-
     if (ViewAllListings == 0){
-      print('========Values Selected========' + '\n' +
-          'Property Value: ' + PV.toString() + '\n' +
-          'Floor Area: ' + FlArea.toString() + '\n' +
-          'Remaining Lease: ' + RemainLease.toString() + '\n' +
-          'Flat Type: ' + FlatTypeDictionary[FlatTypeValue] + '\n' +
-          'Location: ' + LocationDictionary[LocationValue]);
-      if (PV.start != 200000 ||
-          PV.end != 1000000 ||
-          FlArea.start != 31 ||
-          FlArea.end != 249 ||
-          RemainLease.start != 1 ||
-          RemainLease.end != 100 ||
-          FlatTypeValue != 1 ||
-          LocationValue != 1){
-        for (final listing in HDBData.items){
-          if (PV.start < listing.resale_price && listing.resale_price < PV.end &&
-              FlArea.start < listing.floor_area_sqm && listing.floor_area_sqm < FlArea.end &&
-              listing.town == LocationDictionary[LocationValue] &&
-              listing.flat_type == FlatTypeDictionary[FlatTypeValue]) {
-            finalList.add(listing);
-          }
-        }
-      }
-      else {
-        print('========No Filtering is done. Displaying all listings========');
+
+      if (SelectedList.contains(true)) {
+        print ('=========Commencing Filtering=========');
         finalList.addAll(HDBData.items);
+        if (SelectedList[0] == true){
+          print ('Flat Type is selected. Values: ' + FlatTypeDictionary[FlatTypeValue]);
+        }
+        if (SelectedList[1] == true){
+          print ('Location is selected. Values: ' + LocationDictionary[LocationValue]);
+        }
+        if (SelectedList[2] == true){
+          print ('Property value is selected. Values: ' + PV.toString());
+        }
+        if (SelectedList[3] == true){
+          print ('Floor Area is selected. Values: ' + FlArea.toString());
+        }
+        if (SelectedList[4] == true){
+          print('Remaining Lease is selected. Values: ' + RemainLease.toString());
+        }
+        for (final listing in HDBData.items){
+        if (SelectedList[0] == true) {
+          if (FlatTypeValue != 0 && listing.flat_type != FlatTypeDictionary[FlatTypeValue])
+              finalList.remove(listing);
+        }
+        if (SelectedList[1] == true) {
+          if (LocationValue != 0 && listing.town != LocationDictionary[LocationValue])
+            finalList.remove(listing);
+        }
+        if (SelectedList[2] == true) {
+          if (PV.start > listing.resale_price || PV.end < listing.resale_price)
+            finalList.remove(listing);
+        }
+        if (SelectedList[3] == true) {
+          if (FlArea.start > listing.floor_area_sqm || FlArea.end < listing.floor_area_sqm)
+            finalList.remove(listing);
+        }
+        if (SelectedList[4] == true) {
+          if (RemainLease.start > int.parse('${listing.remaining_lease[0]}${listing.remaining_lease[1]}') || RemainLease.end < int.parse('${listing.remaining_lease[0]}${listing.remaining_lease[1]}'))
+            finalList.remove(listing);
+        }
+        }
       }
     }
     else if (ViewAllListings == 1) {
@@ -99,6 +115,6 @@ class FilterController extends StatefulWidget {
 
 
   @override
-  view.ListPageView createState() => view.ListPageView(ViewAllListings: ViewAllListings);
+  view.ListPageView createState() => view.ListPageView(ViewAllListings: ViewAllListings, SelectedList: SelectedList);
 
 }

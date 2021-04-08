@@ -13,15 +13,15 @@ class FilterSliderView extends State<filterslidercontroller.FilterSliderControll
 
 
   /// The default range value for the Property Value of the listing
-  RangeValues _PVCurrentRangeValues = const RangeValues (200000,1000000);
+  static RangeValues _PVCurrentRangeValues = const RangeValues (200000,1000000);
   /// The default range value for the Floor Area of the listing
-  RangeValues _FlAreaCurrentRangeValues = const RangeValues (31,249);
+  static RangeValues _FlAreaCurrentRangeValues = const RangeValues (31,249);
   /// The default range value for the Remaining Lease (in Years) of the listing
-  RangeValues _RemainLeaseCurrentRangeValues = const RangeValues (1,100);
+  static  RangeValues _RemainLeaseCurrentRangeValues = const RangeValues (1,100);
   /// The default value for the Flat Type of the listing.
-  static int _FlatTypeValue = 1;
+  static int _FlatTypeValue = 0;
   /// The default value for the Location of the listing.
-  static int _LocationValue = 1;
+  static int _LocationValue = 0;
 
   var pulledList;
 
@@ -49,6 +49,10 @@ class FilterSliderView extends State<filterslidercontroller.FilterSliderControll
                     /// This dropdownbutton is used for _value1, the flat type of the listing, where value:1 = "1 Room", etc.
                       value: _FlatTypeValue,
                       items: [
+                        DropdownMenuItem(
+                          child: Text("ALL"),
+                          value: 0,
+                        ),
                         DropdownMenuItem(
                           child: Text("1 Room"),
                           value: 1,
@@ -104,6 +108,10 @@ class FilterSliderView extends State<filterslidercontroller.FilterSliderControll
                     /// This dropdownbutton is used for _value2, the location type of the listing, where value:1 = "Ang Mo Kio", etc.
                       value: _LocationValue,
                       items: [
+                        DropdownMenuItem(
+                          child: Text("ALL"),
+                          value: 0,
+                        ),
                         DropdownMenuItem(
                           child: Text("Ang Mo Kio"),
                           value: 1,
@@ -290,9 +298,9 @@ class FilterSliderView extends State<filterslidercontroller.FilterSliderControll
                   labels:  RangeLabels(_RemainLeaseCurrentRangeValues.start.round().toString(), _RemainLeaseCurrentRangeValues.end.round().toString()),
                   activeColor: Colors.blue,
                   inactiveColor: Colors.grey,
-                  onChanged:(RangeValues values){
+                  onChanged:(RangeValues newvalues){
                     setState((){
-                      _RemainLeaseCurrentRangeValues = values;
+                      _RemainLeaseCurrentRangeValues = newvalues;
                     });
                   },
                 ),
@@ -343,11 +351,10 @@ class FilterSliderView extends State<filterslidercontroller.FilterSliderControll
                       )),
                   onPressed: () async{
                     MyApp.setCount(0);
-                    print(_PVCurrentRangeValues);
                     await Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => filtercontroller.FilterController(ViewAllListings: MyApp.getCount())
+                            builder: (context) => filtercontroller.FilterController(ViewAllListings: MyApp.getCount(),SelectedList: SelectedList,)
                         )
                     );
                   }), //To Next Page Button (Filter the listings)

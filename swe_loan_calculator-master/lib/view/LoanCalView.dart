@@ -57,6 +57,6 @@ class LoanCalView extends State<loancalcontroller.LoanCalController> {
   ///method to take screenshot and share to external apps.
   void _takeScreenshotandShare() async {
     final imageFile = await screenshotController.capture();
-    Share.shareFiles([imageFile.path], text: "Shared from HDP App");
+    Share.shareFiles([imageFile.path], text: "Shared from HDB App");
   }
 }
