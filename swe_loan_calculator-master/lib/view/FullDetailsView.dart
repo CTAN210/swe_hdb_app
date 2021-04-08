@@ -16,7 +16,7 @@ class FullDetailsView
     extends State<fulldetailscontroller.FullDetailsController> {
   /// Marker to display exact location of a HDB Listing on the Proximity Map
   final Marker HDBMarker = Marker();
-  /*BitmapDescriptor pinLocationIcon;
+  BitmapDescriptor pinLocationIcon;
   @override
   void initState() {
     super.initState();
@@ -26,7 +26,8 @@ class FullDetailsView
     pinLocationIcon = await BitmapDescriptor.fromAssetImage(
         ImageConfiguration(devicePixelRatio: 2.5),
         'assets/images/house.png');
-  }*/
+  }
+
   /// Specific HDB Listing to be displayed
   HDBListings.HDBListing hdb;
 
@@ -47,6 +48,7 @@ class FullDetailsView
         markerId: MarkerId(hdb.address),
         position: LatLng(hdb.latitude, hdb.longitude),
         infoWindow: InfoWindow(title: hdb.address, snippet: "HDB Listing"),
+        icon: pinLocationIcon,
       );
       _markers[hdb.address] = HDBMarker;
     });
@@ -178,7 +180,7 @@ class FullDetailsView
                       ),
                       IconButton(
                           icon: Image.asset('assets/images/calculator.png'),
-                          iconSize: 80,
+                          iconSize: 70,
                           alignment: Alignment.topRight,
                           onPressed: () {
                             Navigator.push(

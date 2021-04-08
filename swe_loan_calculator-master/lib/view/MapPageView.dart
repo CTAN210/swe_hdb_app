@@ -14,7 +14,7 @@ import 'package:swe_loan_calculator/main.dart';
 class MapPageView extends State<mappagecontroller.MapPageController> {
   /// List of HDB Listings that fit within Filter Conditions
   List<HDBListings.HDBListing> filtered_hdb;
-/*  BitmapDescriptor pinLocationIcon;
+  BitmapDescriptor pinLocationIcon;
   @override
   void initState() {
     super.initState();
@@ -24,12 +24,12 @@ class MapPageView extends State<mappagecontroller.MapPageController> {
     pinLocationIcon = await BitmapDescriptor.fromAssetImage(
         ImageConfiguration(devicePixelRatio: 2.5),
         'assets/images/house.png');
-  }*/
+  }
   /// List of markers to highlight the exact location of Filtered HDB Listings on a Map
   final Map<String, Marker> _markers = {};
-
   /// Controller to control logic of displaying Google Map using Google Maps API
   GoogleMapController controller;
+
 
   /// Function to set markers on Google Map
   Future<void> _onMapCreated(GoogleMapController controller) async {
@@ -45,7 +45,7 @@ class MapPageView extends State<mappagecontroller.MapPageController> {
             title: office.address,
             snippet: '\$' + office.resale_price.toString(),
           ),
-          // icon: pinLocationIcon,
+          icon: pinLocationIcon,
         );
         _markers[office.address] = marker;
       }
@@ -57,7 +57,31 @@ class MapPageView extends State<mappagecontroller.MapPageController> {
   Widget build(BuildContext context) {
     filterview.FilterView FilterViewInstance = filterview.FilterView();
 
-    return MaterialApp(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Map View'),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.home),
+            onPressed: () {
+              Navigator.pushNamedAndRemoveUntil(
+                  context, '/first', (_) => false);
+            },
+          ),
+        ],
+        backgroundColor: Colors.blue[700],
+      ),
+      body: GestureDetector(
+        child: mapmodel.MapModel(
+          center: const LatLng(1.32787, 103.84421),
+          mapController: controller,
+          onMapCreated: _onMapCreated,
+          markers: _markers,
+        ),
+      ),
+    );
+
+/*    return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
           title: Text('Map View'),
@@ -79,8 +103,7 @@ class MapPageView extends State<mappagecontroller.MapPageController> {
                       context,
                       MaterialPageRoute(
                           builder: (context) =>
-                              filtercontroller.FilterController(
-                                  ViewAllListings: MyApp.getCount())));
+                              filtercontroller.FilterController(ViewAllListings: MyApp.getCount())));
                 },
               );
             },
@@ -96,7 +119,7 @@ class MapPageView extends State<mappagecontroller.MapPageController> {
           ),
         ),
       ),
-    );
+    );*/
   }
 
   /// Function to organise the display of Google Map and markers of filtered HDB Listings

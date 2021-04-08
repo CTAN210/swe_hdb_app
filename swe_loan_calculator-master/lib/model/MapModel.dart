@@ -29,13 +29,13 @@ class MapModel extends StatelessWidget {
           onMapCreated: onMapCreated,
           initialCameraPosition: CameraPosition(
             target: center,
-            zoom: 20,
+            zoom: 11,
           ),
           markers: markers.values.toSet(),
           zoomGesturesEnabled: false,
           rotateGesturesEnabled: false,
           tiltGesturesEnabled: false,
-          scrollGesturesEnabled: false,
+          scrollGesturesEnabled: true,
         ),
       ),
     );

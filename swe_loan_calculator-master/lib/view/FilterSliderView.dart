@@ -243,7 +243,6 @@ class FilterSliderView extends State<filterslidercontroller.FilterSliderControll
                   min: 200000,
                   max: 1000000,
                   divisions: 1000,
-                  labels:  RangeLabels(_PVCurrentRangeValues.start.round().toString(), _PVCurrentRangeValues.end.round().toString()),
                   activeColor: Colors.blue,
                   inactiveColor: Colors.grey,
                   onChanged:(RangeValues values){
@@ -252,6 +251,11 @@ class FilterSliderView extends State<filterslidercontroller.FilterSliderControll
                     });
                   },
                 ),
+                Row(children: <Widget>[
+                  Text('\$'+_PVCurrentRangeValues.start.round().toString(),style: TextStyle(fontSize: 15,fontWeight: FontWeight.w700)),
+                  SizedBox(width:190),
+                  Text('\$'+_PVCurrentRangeValues.end.round().toString(),style: TextStyle(fontSize: 15,fontWeight: FontWeight.w700)),
+                ],)
               ],
             ),
           ), //PV Filtering
@@ -269,7 +273,6 @@ class FilterSliderView extends State<filterslidercontroller.FilterSliderControll
                   min: 31,
                   max: 249,
                   divisions: 218,
-                  labels:  RangeLabels(_FlAreaCurrentRangeValues.start.round().toString(), _FlAreaCurrentRangeValues.end.round().toString()),
                   activeColor: Colors.blue,
                   inactiveColor: Colors.grey,
                   onChanged:(RangeValues values){
@@ -278,6 +281,11 @@ class FilterSliderView extends State<filterslidercontroller.FilterSliderControll
                     });
                   },
                 ),
+                Row(children: <Widget>[
+                  Text(_FlAreaCurrentRangeValues.start.round().toString()+' sqm',style: TextStyle(fontSize: 15,fontWeight: FontWeight.w700)),
+                  SizedBox(width:190),
+                  Text(_FlAreaCurrentRangeValues.end.round().toString()+' sqm',style: TextStyle(fontSize: 15,fontWeight: FontWeight.w700)),
+                ]),
               ],
             ),
           ), //Floor Area Filtering
@@ -295,7 +303,6 @@ class FilterSliderView extends State<filterslidercontroller.FilterSliderControll
                   min: 1,
                   max: 100,
                   divisions: 100,
-                  labels:  RangeLabels(_RemainLeaseCurrentRangeValues.start.round().toString(), _RemainLeaseCurrentRangeValues.end.round().toString()),
                   activeColor: Colors.blue,
                   inactiveColor: Colors.grey,
                   onChanged:(RangeValues newvalues){
@@ -304,6 +311,11 @@ class FilterSliderView extends State<filterslidercontroller.FilterSliderControll
                     });
                   },
                 ),
+                Row(children: <Widget>[
+                  Text(_RemainLeaseCurrentRangeValues.start.round().toString()+' years',style: TextStyle(fontSize: 14,fontWeight: FontWeight.w700)),
+                  SizedBox(width:200 ),
+                  Text(_RemainLeaseCurrentRangeValues.end.round().toString()+' years',style: TextStyle(fontSize: 14,fontWeight: FontWeight.w700)),
+                ])
               ],
             ),
           ), //Remain Lease Filtering
@@ -330,8 +342,8 @@ class FilterSliderView extends State<filterslidercontroller.FilterSliderControll
                             _PVCurrentRangeValues = RangeValues(200000,1000000);
                             _FlAreaCurrentRangeValues = RangeValues(31,249);
                             _RemainLeaseCurrentRangeValues = RangeValues(1,100);
-                            _FlatTypeValue = 1;
-                            _LocationValue = 1;
+                            _FlatTypeValue = 0;
+                            _LocationValue = 0;
                         myController.clear();
                       },
                     );

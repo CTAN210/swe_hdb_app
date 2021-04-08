@@ -214,7 +214,7 @@ class LoanCalSliderView
                   }),
               ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                      shape: CircleBorder(), primary: Colors.blue),
+                      shape: CircleBorder(), primary: Colors.green),
                   child: Container(
                       width: 50,
                       height: 50,

@@ -52,12 +52,14 @@ class ListPageView extends State<filtercontroller.FilterController> {
       setState(() {
         checkList = [];
         widget.pulledList = data.value;
-        int j;
+        int j= widget.pulledList.length;
+        if(j==null){j=0;}
+        /*int j;
         try {
           j = widget.pulledList.length;
         } catch (e) {
           j = 0;
-        }
+        }*/
         for (var i = 0; i < j; i++) {
           if (!checkList.contains(widget.pulledList[i])) {
             checkList.add(widget.pulledList[i]);
@@ -110,13 +112,7 @@ class ListPageView extends State<filtercontroller.FilterController> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Filtered HDB Listings '),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pushNamedAndRemoveUntil(context, '/second', (_) => false);
-          },
-        ),
+        title: Text('HDB Listings '),
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.home),

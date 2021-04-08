@@ -19,13 +19,8 @@ class BookmarkPageView extends State<bookmarkpagecontroller.BookmarkPageControll
           setState((){
             checkList=[];
             pulledList = data.value;
-            int j;
-            try{
-              j = pulledList.length;
-            }
-            catch(e){
-              j=0;
-            }
+            int j= pulledList.length;
+            if(j==null){j=0;}
             for(var i=0;i< j;i++){
               if(!checkList.contains(pulledList[i]))
               {checkList.add(pulledList[i]);}
@@ -34,6 +29,8 @@ class BookmarkPageView extends State<bookmarkpagecontroller.BookmarkPageControll
         }
     );
   }
+
+
   @override
   Widget build(BuildContext context) {
     var BookmarkList =  widget.update(widget.bookmarkList);

@@ -15,25 +15,19 @@ class FilterView extends State<filterpagecontroller.FIlterPageController> {
   @override
   Widget build(BuildContext context) {
 
-    return GestureDetector(
-        onTap: () {
-          FocusScopeNode currentFocus = FocusScope.of(context);
-          if (!currentFocus.hasPrimaryFocus) {
-            currentFocus.unfocus();
-          }
-        },
-        child: Scaffold(
-            appBar: AppBar(
-              title: Text("Search/Filter"),
-              leading: IconButton(
-                icon: const Icon(Icons.arrow_back),
-                onPressed: () {
-                  Navigator.pushNamedAndRemoveUntil(context, '/first',(_) => false
-                  );
-                },
-              ),
-              actions: <Widget>[
-                IconButton(
+    return Scaffold(
+        appBar: AppBar(
+          title: Text("Search/Filter"),
+
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.pushNamedAndRemoveUntil(context, '/first',(_) => false
+              );
+            },
+          ),
+          actions: <Widget>[
+            IconButton(
                   icon: Icon(Icons.list),
                   onPressed:() async{
                     MyApp.setCount(1);
@@ -46,7 +40,7 @@ class FilterView extends State<filterpagecontroller.FIlterPageController> {
                   }),
               ],
             ),
-            body: ListView(
+        body: ListView(
               padding: const EdgeInsets.all(8),
               children: <Widget>[
                 Container(
@@ -101,8 +95,7 @@ class FilterView extends State<filterpagecontroller.FIlterPageController> {
                     )
                 )
               ],
-            )
-        )
-    );
+            ),
+        );
   }
 }

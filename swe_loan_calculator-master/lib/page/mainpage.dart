@@ -78,7 +78,7 @@ class MyHomePage extends State<HomePageStateful> {
                   icon: Image.asset('assets/images/Search.png'),
                   iconSize: 150,
                   onPressed: () {
-                    Navigator.pushNamedAndRemoveUntil(context, '/second',(_) => false
+                    Navigator.pushNamed(context, '/second'
                     );
                   },
                 ),
