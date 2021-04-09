@@ -29,19 +29,11 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36e3cabf-a4c7-4422-8c6c-d3b9aa815eda" name="Default Changelist" comment="Filtering Logic update">
+    <list default="true" id="36e3cabf-a4c7-4422-8c6c-d3b9aa815eda" name="Default Changelist" comment="Final draft of the code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/assets/images/house.png" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/assets/images/house.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/lib/controller/MapPageController.dart" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/lib/controller/MapPageController.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/lib/model/MapModel.dart" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/lib/model/MapModel.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/lib/page/mainpage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/lib/page/mainpage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/lib/view/BookMarkPageView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/lib/view/BookMarkPageView.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/lib/view/FilterSliderView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/lib/view/FilterSliderView.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/lib/view/FilterView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/lib/view/FilterView.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/lib/view/FullDetailsView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/lib/view/FullDetailsView.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/lib/view/ListPageView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/lib/view/ListPageView.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/lib/view/LoanCalSliderView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/lib/view/LoanCalSliderView.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/lib/view/MapPageView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/lib/view/MapPageView.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617879716966</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Final draft of the code">
+      <created>1617891865208</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1617891865208</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -243,7 +242,8 @@
     <MESSAGE value="Split MVC + clean some codes" />
     <MESSAGE value="07 Apr code cleaning" />
     <MESSAGE value="Filtering Logic update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Filtering Logic update" />
+    <MESSAGE value="Final draft of the code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final draft of the code" />
   </component>
   <component name="WindowStateProjectService">
     <state x="607" y="195" key="#Plugins" timestamp="1616641977533">
@@ -268,12 +268,12 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="380" y="24" key="#com.intellij.unscramble.UnscrambleDialog/0.0.1280.680@0.0.1280.680" timestamp="1616216120581" />
-    <state x="92" y="92" width="1736" height="856" key="AVDManager" timestamp="1617886236280">
+    <state x="92" y="92" width="1736" height="856" key="AVDManager" timestamp="1617922506164">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="77" y="44" width="1158" height="560" key="AVDManager/0.0.1280.680@0.0.1280.680" timestamp="1616235509092" />
     <state x="3956" y="67" width="1737" height="857" key="AVDManager/0.0.1536.824/3840.0.1920.1040@3840.0.1920.1040" timestamp="1616307390331" />
-    <state x="92" y="92" width="1736" height="856" key="AVDManager/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617886236280" />
+    <state x="92" y="92" width="1736" height="856" key="AVDManager/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617922506164" />
     <state x="515" y="122" width="776" height="856" maximized="true" key="DiffContextDialog" timestamp="1617860603654">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -285,34 +285,34 @@
     <state x="4580" y="49" key="FileChooserDialogImpl/0.0.1536.824/3840.0.1920.1040@3840.0.1920.1040" timestamp="1616321413969" />
     <state x="4826" y="49" key="FileChooserDialogImpl/0.0.1536.824/3840.0.2560.1040@3840.0.2560.1040" timestamp="1616252421325" />
     <state x="740" y="275" key="FileChooserDialogImpl/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617774306628" />
-    <state width="448" height="277" key="GridCell.Tab.0.bottom" timestamp="1617889475203">
+    <state width="448" height="277" key="GridCell.Tab.0.bottom" timestamp="1617924230979">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1236" height="128" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1616234992642" />
     <state width="1049" height="306" key="GridCell.Tab.0.bottom/0.0.1536.824/3840.0.1920.1040@3840.0.1920.1040" timestamp="1616321427405" />
     <state width="1170" height="276" key="GridCell.Tab.0.bottom/0.0.1536.824/3840.0.2560.1040@3840.0.2560.1040" timestamp="1616252248134" />
-    <state width="448" height="277" key="GridCell.Tab.0.bottom/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617889475203" />
-    <state width="448" height="277" key="GridCell.Tab.0.center" timestamp="1617889475203">
+    <state width="448" height="277" key="GridCell.Tab.0.bottom/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617924230979" />
+    <state width="448" height="277" key="GridCell.Tab.0.center" timestamp="1617924230979">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1236" height="128" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1616234992642" />
     <state width="1049" height="306" key="GridCell.Tab.0.center/0.0.1536.824/3840.0.1920.1040@3840.0.1920.1040" timestamp="1616321427405" />
     <state width="1170" height="276" key="GridCell.Tab.0.center/0.0.1536.824/3840.0.2560.1040@3840.0.2560.1040" timestamp="1616252248134" />
-    <state width="448" height="277" key="GridCell.Tab.0.center/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617889475203" />
-    <state width="448" height="277" key="GridCell.Tab.0.left" timestamp="1617889475203">
+    <state width="448" height="277" key="GridCell.Tab.0.center/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617924230979" />
+    <state width="448" height="277" key="GridCell.Tab.0.left" timestamp="1617924230979">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1236" height="128" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1616234992641" />
     <state width="1049" height="306" key="GridCell.Tab.0.left/0.0.1536.824/3840.0.1920.1040@3840.0.1920.1040" timestamp="1616321427405" />
     <state width="1170" height="276" key="GridCell.Tab.0.left/0.0.1536.824/3840.0.2560.1040@3840.0.2560.1040" timestamp="1616252248134" />
-    <state width="448" height="277" key="GridCell.Tab.0.left/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617889475203" />
-    <state width="448" height="277" key="GridCell.Tab.0.right" timestamp="1617889475203">
+    <state width="448" height="277" key="GridCell.Tab.0.left/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617924230979" />
+    <state width="448" height="277" key="GridCell.Tab.0.right" timestamp="1617924230979">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1236" height="128" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1616234992642" />
     <state width="1049" height="306" key="GridCell.Tab.0.right/0.0.1536.824/3840.0.1920.1040@3840.0.1920.1040" timestamp="1616321427405" />
     <state width="1170" height="276" key="GridCell.Tab.0.right/0.0.1536.824/3840.0.2560.1040@3840.0.2560.1040" timestamp="1616252248134" />
-    <state width="448" height="277" key="GridCell.Tab.0.right/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617889475203" />
+    <state width="448" height="277" key="GridCell.Tab.0.right/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617924230979" />
     <state x="184" y="86" key="MergeDialog" timestamp="1617719289021">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -364,10 +364,10 @@
       <screen x="3840" y="0" width="1920" height="1040" />
     </state>
     <state x="4911" y="0" width="849" height="1047" key="dock-window-3/0.0.1536.824/3840.0.1920.1040@3840.0.1920.1040" timestamp="1616305570613" />
-    <state x="982" y="194" width="773" height="534" key="find.popup" timestamp="1617891618842">
+    <state x="982" y="194" width="773" height="534" key="find.popup" timestamp="1617924724377">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="982" y="194" width="773" height="534" key="find.popup/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617891618842" />
+    <state x="982" y="194" width="773" height="534" key="find.popup/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617924724377" />
     <state x="691" y="233" key="git4idea.branch.GitSmartOperationDialog" timestamp="1617860199156">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -437,6 +437,11 @@
           <url>file://$PROJECT_DIR$/swe_loan_calculator-master/lib/view/FilterSliderView.dart</url>
           <line>359</line>
           <option name="timeStamp" value="76" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/swe_loan_calculator-master/lib/view/ListPageView.dart</url>
+          <line>153</line>
+          <option name="timeStamp" value="77" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

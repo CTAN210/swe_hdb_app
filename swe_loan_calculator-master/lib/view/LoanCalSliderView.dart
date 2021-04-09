@@ -205,7 +205,7 @@ class LoanCalSliderView
                   onPressed: () {
                     setState(
                       () {
-                        _intValue = 0;
+                        _intValue = 0.1;
                         _loanTenureValue = 1;
                         _loanValue = 10;
                         myController.clear();

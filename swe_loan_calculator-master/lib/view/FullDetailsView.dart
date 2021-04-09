@@ -176,11 +176,11 @@ class FullDetailsView
                         ],
                       ),
                       SizedBox(
-                        width: 40,
+                        width: 20,
                       ),
                       IconButton(
                           icon: Image.asset('assets/images/calculator.png'),
-                          iconSize: 70,
+                          iconSize: 60,
                           alignment: Alignment.topRight,
                           onPressed: () {
                             Navigator.push(
