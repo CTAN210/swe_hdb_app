@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:swe_loan_calculator/provider/google_sign_in.dart';
 import 'package:provider/provider.dart';
+import 'package:swe_loan_calculator/controller/LoginController.dart' as logincontroller;
 
 class GoogleSignupButtonWidget extends StatelessWidget {
   @override
@@ -20,7 +20,7 @@ class GoogleSignupButtonWidget extends StatelessWidget {
       icon: FaIcon(FontAwesomeIcons.google, color: Colors.red),
       onPressed: () {
         final provider =
-            Provider.of<GoogleSignInProvider>(context, listen: false);
+            Provider.of<logincontroller.LoginController>(context, listen: false);
         provider.login();
       },
     ),

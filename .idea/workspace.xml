@@ -30,10 +30,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36e3cabf-a4c7-4422-8c6c-d3b9aa815eda" name="Default Changelist" comment="Final draft of the code">
+      <change afterPath="$PROJECT_DIR$/swe_loan_calculator-master/lib/controller/MainController.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/android/app/google-services.json" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/android/app/google-services.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/lib/controller/BookMarkController.dart" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/lib/controller/BookMarkController.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/lib/page/loginpage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/lib/view/LoginView.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/lib/page/mainpage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/lib/view/MainView.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/lib/provider/google_sign_in.dart" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/lib/controller/LoginController.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/lib/view/FullDetailsView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/lib/view/FullDetailsView.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/lib/view/ListPageView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/lib/view/ListPageView.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/lib/view/LoanCalSliderView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/lib/view/LoanCalSliderView.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/lib/view/LoanVisualView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/lib/view/LoanVisualView.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/lib/widget/google_signup_button_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/lib/widget/google_signup_button_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swe_loan_calculator-master/lib/widget/logged_in_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/swe_loan_calculator-master/lib/widget/logged_in_widget.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,20 +78,21 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\hkorj\OneDrive\Desktop\swe_loan_calculator-master\swe_loan_calculator-master\android\app" />
-      <recent name="C:\Users\hkorj\OneDrive\Desktop\swe_loan_calculator-master\swe_loan_calculator-master\android\app\src" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\colin\Downloads\21-3 code\swe_loan_calculator-master\swe_loan_calculator-master\lib\view" />
+      <recent name="C:\Users\colin\Downloads\21-3 code\swe_loan_calculator-master\swe_loan_calculator-master\lib\controller" />
       <recent name="C:\Users\waich\Desktop\20-3 code\swe_loan_calculator-master\swe_loan_calculator-master\assets" />
       <recent name="C:\Users\waich\Desktop\20-3 code\swe_loan_calculator-master\swe_loan_calculator-master\assets\images" />
       <recent name="C:\Users\waich\Desktop\20-3 code\swe_loan_calculator-master\swe_loan_calculator-master\lib" />
-      <recent name="C:\Users\waich\Desktop\20-3 code\swe_loan_calculator-master\swe_loan_calculator-master\lib\page" />
-      <recent name="C:\Users\hkorj\OneDrive\Desktop\swe_loan_calculator-master\swe_loan_calculator-master\lib\page" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\hkorj\OneDrive\Desktop\swe_loan_calculator-master\swe_loan_calculator-master\android\app" />
+      <recent name="C:\Users\hkorj\OneDrive\Desktop\swe_loan_calculator-master\swe_loan_calculator-master\android\app\src" />
     </key>
   </component>
   <component name="RunManager" selected="Flutter.main.dart">
@@ -179,7 +188,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617891865208</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Final draft of the code">
+      <created>1617927115664</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1617927115664</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -268,12 +284,16 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="380" y="24" key="#com.intellij.unscramble.UnscrambleDialog/0.0.1280.680@0.0.1280.680" timestamp="1616216120581" />
-    <state x="92" y="92" width="1736" height="856" key="AVDManager" timestamp="1617922506164">
+    <state x="707" y="375" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1617982428219">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="707" y="375" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617982428219" />
+    <state x="92" y="92" width="1736" height="856" key="AVDManager" timestamp="1617981300551">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="77" y="44" width="1158" height="560" key="AVDManager/0.0.1280.680@0.0.1280.680" timestamp="1616235509092" />
     <state x="3956" y="67" width="1737" height="857" key="AVDManager/0.0.1536.824/3840.0.1920.1040@3840.0.1920.1040" timestamp="1616307390331" />
-    <state x="92" y="92" width="1736" height="856" key="AVDManager/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617922506164" />
+    <state x="92" y="92" width="1736" height="856" key="AVDManager/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617981300551" />
     <state x="515" y="122" width="776" height="856" maximized="true" key="DiffContextDialog" timestamp="1617860603654">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -285,34 +305,34 @@
     <state x="4580" y="49" key="FileChooserDialogImpl/0.0.1536.824/3840.0.1920.1040@3840.0.1920.1040" timestamp="1616321413969" />
     <state x="4826" y="49" key="FileChooserDialogImpl/0.0.1536.824/3840.0.2560.1040@3840.0.2560.1040" timestamp="1616252421325" />
     <state x="740" y="275" key="FileChooserDialogImpl/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617774306628" />
-    <state width="448" height="277" key="GridCell.Tab.0.bottom" timestamp="1617924230979">
+    <state width="918" height="279" key="GridCell.Tab.0.bottom" timestamp="1617991863836">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1236" height="128" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1616234992642" />
     <state width="1049" height="306" key="GridCell.Tab.0.bottom/0.0.1536.824/3840.0.1920.1040@3840.0.1920.1040" timestamp="1616321427405" />
     <state width="1170" height="276" key="GridCell.Tab.0.bottom/0.0.1536.824/3840.0.2560.1040@3840.0.2560.1040" timestamp="1616252248134" />
-    <state width="448" height="277" key="GridCell.Tab.0.bottom/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617924230979" />
-    <state width="448" height="277" key="GridCell.Tab.0.center" timestamp="1617924230979">
+    <state width="918" height="279" key="GridCell.Tab.0.bottom/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617991863836" />
+    <state width="918" height="279" key="GridCell.Tab.0.center" timestamp="1617991863836">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1236" height="128" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1616234992642" />
     <state width="1049" height="306" key="GridCell.Tab.0.center/0.0.1536.824/3840.0.1920.1040@3840.0.1920.1040" timestamp="1616321427405" />
     <state width="1170" height="276" key="GridCell.Tab.0.center/0.0.1536.824/3840.0.2560.1040@3840.0.2560.1040" timestamp="1616252248134" />
-    <state width="448" height="277" key="GridCell.Tab.0.center/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617924230979" />
-    <state width="448" height="277" key="GridCell.Tab.0.left" timestamp="1617924230979">
+    <state width="918" height="279" key="GridCell.Tab.0.center/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617991863836" />
+    <state width="918" height="279" key="GridCell.Tab.0.left" timestamp="1617991863836">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1236" height="128" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1616234992641" />
     <state width="1049" height="306" key="GridCell.Tab.0.left/0.0.1536.824/3840.0.1920.1040@3840.0.1920.1040" timestamp="1616321427405" />
     <state width="1170" height="276" key="GridCell.Tab.0.left/0.0.1536.824/3840.0.2560.1040@3840.0.2560.1040" timestamp="1616252248134" />
-    <state width="448" height="277" key="GridCell.Tab.0.left/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617924230979" />
-    <state width="448" height="277" key="GridCell.Tab.0.right" timestamp="1617924230979">
+    <state width="918" height="279" key="GridCell.Tab.0.left/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617991863836" />
+    <state width="918" height="279" key="GridCell.Tab.0.right" timestamp="1617991863836">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1236" height="128" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1616234992642" />
     <state width="1049" height="306" key="GridCell.Tab.0.right/0.0.1536.824/3840.0.1920.1040@3840.0.1920.1040" timestamp="1616321427405" />
     <state width="1170" height="276" key="GridCell.Tab.0.right/0.0.1536.824/3840.0.2560.1040@3840.0.2560.1040" timestamp="1616252248134" />
-    <state width="448" height="277" key="GridCell.Tab.0.right/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617924230979" />
+    <state width="918" height="279" key="GridCell.Tab.0.right/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617991863836" />
     <state x="184" y="86" key="MergeDialog" timestamp="1617719289021">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -364,10 +384,10 @@
       <screen x="3840" y="0" width="1920" height="1040" />
     </state>
     <state x="4911" y="0" width="849" height="1047" key="dock-window-3/0.0.1536.824/3840.0.1920.1040@3840.0.1920.1040" timestamp="1616305570613" />
-    <state x="982" y="194" width="773" height="534" key="find.popup" timestamp="1617924724377">
+    <state x="982" y="194" width="773" height="534" key="find.popup" timestamp="1617983928781">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="982" y="194" width="773" height="534" key="find.popup/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617924724377" />
+    <state x="982" y="194" width="773" height="534" key="find.popup/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617983928781" />
     <state x="691" y="233" key="git4idea.branch.GitSmartOperationDialog" timestamp="1617860199156">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -376,17 +396,17 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1615382373518" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1617723328622">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1617983939321">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617723328622" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617983939321" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
           <url>file://$PROJECT_DIR$/swe_loan_calculator-master/lib/main.dart</url>
-          <line>53</line>
+          <line>52</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
@@ -394,7 +414,7 @@
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
-          <url>file://$PROJECT_DIR$/swe_loan_calculator-master/lib/page/loginpage.dart</url>
+          <url>file://$PROJECT_DIR$/swe_loan_calculator-master/lib/view/LoginView.dart</url>
           <line>9</line>
           <option name="timeStamp" value="53" />
         </line-breakpoint>

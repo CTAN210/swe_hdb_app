@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "987012366778-3inec7mj0s9tvrui8nep08i6udadsq2o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.google_login",
+            "certificate_hash": "ee3960d0356dfdfb12c80cf20e4766e9ea5d2243"
+          }
+        },
+        {
           "client_id": "987012366778-5in0cc0v19n9q2doku383ullgr9bhv2m.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -23,11 +31,11 @@
           }
         },
         {
-          "client_id": "987012366778-d3gpjn0jlmohu36k1oj154itipouhmkn.apps.googleusercontent.com",
+          "client_id": "987012366778-jvedopen0j4pstpea3blnhiqbb82crii.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.google_login",
-            "certificate_hash": "ee3960d0356dfdfb12c80cf20e4766e9ea5d2243"
+            "certificate_hash": "56b091cfe899320b15333e592ea50abe1e492ad4"
           }
         },
         {
@@ -61,12 +69,145 @@
     },
     {
       "client_info": {
+        "mobilesdk_app_id": "1:987012366778:android:64507b5943a927ceb05d83",
+        "android_client_info": {
+          "package_name": "com.example.swe_hdb_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "987012366778-dal6llhaj47pladplvnbpf9uvo1rhit0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.swe_hdb_app",
+            "certificate_hash": "56b091cfe899320b15333e592ea50abe1e492ad4"
+          }
+        },
+        {
+          "client_id": "987012366778-h7chn0devnqheejqnptphi634arbrio5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.swe_hdb_app",
+            "certificate_hash": "44ef19d85a3f2a0921e78e87f1ae09f506f47676"
+          }
+        },
+        {
+          "client_id": "987012366778-ku5a86au2ohnrjqdu1a6rbuac0mq0605.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.swe_hdb_app",
+            "certificate_hash": "ee3960d0356dfdfb12c80cf20e4766e9ea5d2243"
+          }
+        },
+        {
+          "client_id": "987012366778-muu9t65hbrf81df275r7nmn9jch98ija.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.swe_hdb_app",
+            "certificate_hash": "e9984ccb5f5f6bb6a49cb3dc3e7374956a7e4c7f"
+          }
+        },
+        {
+          "client_id": "987012366778-th5avutd49ifh94vj45d7b1lvj05kqjk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.swe_hdb_app",
+            "certificate_hash": "65611cec98f4cdd0678eaec136216e115528dc14"
+          }
+        },
+        {
+          "client_id": "987012366778-vvvk258dfq452rpjac5u8b8n88sajtpd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.swe_hdb_app",
+            "certificate_hash": "4f86629f725839dc6c4f0a3a9d328e54f399349d"
+          }
+        },
+        {
+          "client_id": "987012366778-veq82tq4t9alikkul4ohqdscpi97kgdr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnlunnHBEwPWAGj0JrtolvU-ZGTdv-aG8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "987012366778-veq82tq4t9alikkul4ohqdscpi97kgdr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:987012366778:android:3e2c15bdd66196cbb05d83",
         "android_client_info": {
           "package_name": "com.example.swe_loan_calculator"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "987012366778-a32tfqrpiourp8mid42qiem4j646i86m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.swe_loan_calculator",
+            "certificate_hash": "24f90b260630b9813af29d025fe578fbc2f1335c"
+          }
+        },
+        {
+          "client_id": "987012366778-bde9qfospev793vheg1cgv9kodqu1d5m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.swe_loan_calculator",
+            "certificate_hash": "44ef19d85a3f2a0921e78e87f1ae09f506f47676"
+          }
+        },
+        {
+          "client_id": "987012366778-f34ii85icgl9tv8t1jh7fa2dtrjs4p65.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.swe_loan_calculator",
+            "certificate_hash": "e9984ccb5f5f6bb6a49cb3dc3e7374956a7e4c7f"
+          }
+        },
+        {
+          "client_id": "987012366778-fe0dja539a59addrcch0fcgigefmguu5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.swe_loan_calculator",
+            "certificate_hash": "ce8ea56c90a0397841fb06e410ed651baa90dfd2"
+          }
+        },
+        {
+          "client_id": "987012366778-g821aki95vu1e3v7k0qooshoevuv93m3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.swe_loan_calculator",
+            "certificate_hash": "4f86629f725839dc6c4f0a3a9d328e54f399349d"
+          }
+        },
+        {
+          "client_id": "987012366778-grqm90dmcpl28jsgi68q9k0clhr1ahem.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.swe_loan_calculator",
+            "certificate_hash": "65611cec98f4cdd0678eaec136216e115528dc14"
+          }
+        },
+        {
+          "client_id": "987012366778-j954i586lljlk6nikbr10vth6ur64rjf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.swe_loan_calculator",
+            "certificate_hash": "56b091cfe899320b15333e592ea50abe1e492ad4"
+          }
+        },
         {
           "client_id": "987012366778-veq82tq4t9alikkul4ohqdscpi97kgdr.apps.googleusercontent.com",
           "client_type": 3

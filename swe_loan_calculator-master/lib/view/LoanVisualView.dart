@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:swe_loan_calculator/controller/MonthlyVisualisationController.dart' as monthlyvisualisationcontroller;
 import 'package:swe_loan_calculator/controller/TotalVisualisationController.dart' as totalvisualisationcontroller;
-import 'package:swe_loan_calculator/page/mainpage.dart' as mainpage;
+import 'package:swe_loan_calculator/controller/MainController.dart' as maincontroller;
 
 ///Boundary class that displays the visualisations of the calculation by the oan calculator.
 class LoanVisualView extends StatelessWidget{
@@ -47,7 +47,7 @@ class LoanVisualView extends StatelessWidget{
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => mainpage.HomePageStateful()));
+                            builder: (context) => maincontroller.MainController()));
                   },
                 ),
 
@@ -80,6 +80,6 @@ class LoanVisualView extends StatelessWidget{
   ///method to take screen shot of widgets selected by the screenshot controller and share it to an external app.
   void _takeScreenshotandShare() async {
     final imageFile = await screenshotController.capture();
-    Share.shareFiles([imageFile.path], text: "Shared from HDP App");
+    Share.shareFiles([imageFile.path], text: "Shared from HDB App");
   }
 }

@@ -1,21 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:swe_loan_calculator/provider/google_sign_in.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:swe_loan_calculator/controller/BookMarkController.dart' as bookmarkcontroller;
 import 'package:swe_loan_calculator/controller/LoanCalController.dart' as loancalcontroller;
 import 'package:swe_loan_calculator/controller/HelpPageController.dart' as helppagecontroller;
 import 'package:swe_loan_calculator/controller/BookMarkPageController.dart' as bookmarkpagecontroller;
+import 'package:swe_loan_calculator/controller/MainController.dart' as maincontroller;
+import 'package:swe_loan_calculator/controller/LoginController.dart' as logincontroller;
 
 
-class HomePageStateful extends StatefulWidget {
-  @override
-  MyHomePage createState() => MyHomePage();
-}
+
 
 /// Class to organise the display of main page view
-class MyHomePage extends State<HomePageStateful> {
+class MainView extends State<maincontroller.MainController> {
   var bookmarkList=[];
   void updateList(){
     var BookmarkController = bookmarkcontroller.BookMarkController();
@@ -62,7 +60,7 @@ class MyHomePage extends State<HomePageStateful> {
               iconSize: 30,
               onPressed: () {
                 final provider =
-                Provider.of<GoogleSignInProvider>(context, listen: false);
+                Provider.of<logincontroller.LoginController>(context, listen: false);
                 provider.logout();
               },
             ),
@@ -135,9 +133,6 @@ class MyHomePage extends State<HomePageStateful> {
                 bookmarkpagecontroller.BookmarkPageController(bookmarkList),
             ]),
           ),
-
-          /// Button to go to help page
-          ///Display bookmarked listings
         ])));
 
   }

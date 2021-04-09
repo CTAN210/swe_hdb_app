@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:swe_loan_calculator/provider/google_sign_in.dart';
 import 'package:provider/provider.dart';
+import 'package:swe_loan_calculator/controller/LoginController.dart' as logincontroller;
 
 class LoggedInWidget extends StatelessWidget {
   @override
@@ -38,7 +38,7 @@ class LoggedInWidget extends StatelessWidget {
           ElevatedButton(
             onPressed: () {
               final provider =
-              Provider.of<GoogleSignInProvider>(context, listen: false);
+              Provider.of<logincontroller.LoginController>(context, listen: false);
               provider.logout();
             },
             child: Text('Logout'),

@@ -1,14 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:swe_loan_calculator/page/loginpage.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:swe_loan_calculator/page/mainpage.dart' as mainPage;
 import 'package:swe_loan_calculator/controller/FilterPageController.dart' as filterpagecontroller;
 import 'package:swe_loan_calculator/controller/FullDetailsController.dart' as fulldetailscontroller;
 import 'package:swe_loan_calculator/controller/MapPageController.dart' as mappagecontroller;
 import 'package:swe_loan_calculator/controller/FilterController.dart' as filtercontroller;
 import 'package:swe_loan_calculator/view/FilterView.dart' as filterview;
-
+import 'package:swe_loan_calculator/view/LoginView.dart' as loginview;
+import 'package:swe_loan_calculator/controller/MainController.dart' as maincontroller;
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -38,9 +37,9 @@ class MyApp extends StatelessWidget {
     initialRoute: '/',
     routes: {
       /// Route: To Login Page
-      '/': (context) => LoginPage(),
+      '/': (context) => loginview.LoginView(),
       /// Route: To Home Page
-      '/first': (context) => mainPage.HomePageStateful(),
+      '/first': (context) => maincontroller.MainController(),
       /// Route: To Filter Page
       '/second':(context) => filterpagecontroller.FIlterPageController(),
       /// Route: To Full Details Page

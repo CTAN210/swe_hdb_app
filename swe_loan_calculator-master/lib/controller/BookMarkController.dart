@@ -7,7 +7,7 @@ class BookMarkController{
   ///reference of the path in the database
   final databaseReference = FirebaseDatabase.instance.reference();
   ///user id key of the current user
-  final user = FirebaseAuth.instance.currentUser.uid;
+  final user = FirebaseAuth.instance.currentUser.displayName;
 
   ///method to update the BookMarkInfo in the database.
   void saveBookmark(model.BookMarkInfoModel bookMarkInfo) {

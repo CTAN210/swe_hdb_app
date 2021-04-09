@@ -12,10 +12,10 @@ import 'package:screenshot/screenshot.dart';
 import 'package:share/share.dart';
 
 /// Class to organise the display of Full Details of a HDB Listing
-class FullDetailsView
-    extends State<fulldetailscontroller.FullDetailsController> {
+class FullDetailsView extends State<fulldetailscontroller.FullDetailsController> {
   /// Marker to display exact location of a HDB Listing on the Proximity Map
   final Marker HDBMarker = Marker();
+
   BitmapDescriptor pinLocationIcon;
   @override
   void initState() {
@@ -37,7 +37,7 @@ class FullDetailsView
   /// Controller to control logic of displaying Proximity Map using Google Maps API
   GoogleMapController controller;
 
-  ///attribute to determine which widgets to be included in the screenshot
+  /// Attribute to determine which widgets to be included in the screenshot
   ScreenshotController screenshotController = ScreenshotController();
 
   /// Function to set markers on Proximity Map
