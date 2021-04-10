@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:swe_loan_calculator/view/FilterView.dart' as view;
 
+/// Controller class to create the FilterView state, that is used to build the widget on the Search/Filters page.
 class FIlterPageController extends StatefulWidget{
   FIlterPageController({Key key, this.title}) : super(key: key);
 

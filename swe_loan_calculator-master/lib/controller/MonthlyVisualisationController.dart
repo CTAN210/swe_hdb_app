@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:swe_loan_calculator/view/MonthlyVisualisationView.dart' as view;
 
-///controller class for Monthly visualisation. Creates state for the monthly visualisation view.
+/// Controller class for Monthly visualisation. Creates state for the monthly visualisation view.
 class MonthlyVisualisationController extends StatefulWidget {
   ///interest amount
   final double intValue;

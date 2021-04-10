@@ -12,7 +12,7 @@ import 'package:swe_loan_calculator/controller/LoginController.dart' as logincon
 
 
 
-/// Class to organise the display of main page view
+/// Boundary Class to organise the display of main page view
 class MainView extends State<maincontroller.MainController> {
   var bookmarkList=[];
   void updateList(){

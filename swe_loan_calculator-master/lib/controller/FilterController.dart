@@ -5,7 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:swe_loan_calculator/view/ListPageView.dart' as view;
 import 'package:swe_loan_calculator/src/HDBListings.dart' as locations;
 
-/// Class to instantiate ListPageView and control the logic behind displaying Filtered HDB Listings on a List View
+/// Class to create the ListPageView state and control the logic behind displaying Filtered HDB Listings on a List View
 class FilterController extends StatefulWidget {
 
 

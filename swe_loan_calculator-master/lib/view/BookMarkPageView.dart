@@ -7,6 +7,7 @@ import 'package:swe_loan_calculator/controller/BookMarkPageController.dart' as b
 import 'package:swe_loan_calculator/model/BookMarkInfoModel.dart' as bookmarkinfomodel;
 import 'package:swe_loan_calculator/controller/FullDetailsController.dart' as fulldetailscontroller;
 
+/// Boundary class for to display the bookmarked listing on the Main View page.
 class BookmarkPageView extends State<bookmarkpagecontroller.BookmarkPageController>{
 
   var BookmarkController = bookmarkcontroller.BookMarkController();

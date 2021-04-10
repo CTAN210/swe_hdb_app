@@ -15,7 +15,7 @@ import 'package:swe_loan_calculator/view/FilterSliderView.dart'
 import 'package:swe_loan_calculator/controller/FullDetailsController.dart'
     as fulldetailscontroller;
 
-/// Class to organise the display of Filtered HDB Listings on a List View
+/// Boundary Class to organise the display of Filtered HDB Listings on a List View
 class ListPageView extends State<filtercontroller.FilterController> {
   /// List of Bookmarked HDB Listings
   final List bookmarkList = [];

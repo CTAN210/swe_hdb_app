@@ -2,7 +2,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:swe_loan_calculator/model/BookMarkInfoModel.dart' as model;
 
-///controller class to interact with the database.
+/// Controller class to interact with the database.
 class BookMarkController{
   ///reference of the path in the database
   final databaseReference = FirebaseDatabase.instance.reference();

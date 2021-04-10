@@ -1,6 +1,6 @@
 import 'dart:math';
 
-/// controller class that makes all the loan calculation
+/// Controller class that contains all the logic that will be used for loan calculation in LoanCalView
 class LoanController{
   ///method used to calculate total loan amount
   static double calculateTotalLoanAmount(double principalValue, int loanValue){

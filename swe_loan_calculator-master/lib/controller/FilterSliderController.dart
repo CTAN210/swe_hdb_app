@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:swe_loan_calculator/view/FilterSliderView.dart' as view;
 
-///controller class that builds the FilterSliderView page.
+/// Controller class that builds FilterSliderView state.
 class FilterSliderController extends StatefulWidget {
 
   ///constructor for FilterSliderController

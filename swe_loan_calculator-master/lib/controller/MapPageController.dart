@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:swe_loan_calculator/view/MapPageView.dart' as view;
 
 
-/// Class to instantiate MapPageController and control the logic behind displaying Filtered HDB Listings on a GoogleMap
+/// Class to create the MapPageView state and control the logic behind displaying Filtered HDB Listings on a GoogleMap
 class MapPageController extends StatefulWidget {
 
 

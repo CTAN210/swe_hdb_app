@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:swe_loan_calculator/controller/LoginController.dart' as logincontroller;
 import 'package:swe_loan_calculator/controller/MainController.dart' as maincontroller;
 
-
+/// Boundary Class that displays the visualisation for User to click Login buttons
 class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:swe_loan_calculator/src/HDBListings.dart' as locations;
 import 'package:swe_loan_calculator/view/BookMarkPageView.dart' as view;
 
-
+/// Controller class to create the BookmarkPageView state, and create a function that adds listing to the Bookmarked Listing widget in BookmarkPageView.
 class BookmarkPageController extends StatefulWidget{
   var bookmarkList;
   BookmarkPageController(this.bookmarkList);
